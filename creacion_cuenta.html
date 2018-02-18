@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Creación De Cuenta</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/jquery.js"></script>
+</head>
+<body class="animated fadeInRight">
+	<div class="section"></div>
+	<div class="container">
+		<div class="row recuperacion">
+			<div class="col s12">
+			<form action="">
+				<center>
+            	<img class="logo" src="img/logo.png">
+					<h4 class="indigo-text">Crea tu cuenta en nuestra App</h4>
+					<div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+						<div class="row">
+							<div class="input-field col s6">
+								<input id="Nombre" type="text" class="validate" required="" aria-required="true">
+								<label class="active" for="Nombre" style="text-align: left;">Nombre</label>
+							</div>
+							<div class="input-field col s6">
+								<input id="Apellido" type="text" class="validate" required="" aria-required="true">
+								<label class="active" for="Apellido" style="text-align: left;">Apellido</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+                            <i class="material-icons prefix">mail</i>
+								<input id="email-rec" type="text" class="validate" required="" aria-required="true">
+								<label class="active" for="email-rec" style="text-align: left;">Correo electronico</label>
+							</div>
+						</div>
+					</div>
+				</center>
+					<center><button id="btn-enviar" type='submit' class='btn waves-effect indigo'><i class="material-icons right"></i>Entrar</button></center>
+				</form>
+			</div>
+		</div>    
+	</div>
+</body>
+</html>

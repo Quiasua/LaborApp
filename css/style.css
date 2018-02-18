@@ -1,0 +1,22 @@
+.logo{
+	width: 200px;height: 200px;
+}
+.texto1{
+	margin: 0 0 5px 0;
+}
+.recuperar{
+	font-size: 18px;
+	text-align: center;
+}
+.asociar{
+	font-size: 15;
+}
+.mensajito{
+	padding-top:0;
+	border: 1px;
+}
+.mensajito  p{
+	padding-top: 0;
+	margin-top: 0
+}
+
