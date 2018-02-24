@@ -12,6 +12,18 @@
     <script src="js/jquery.js"></script>
     <script src="js/materialize.min.js"></script>
 </head>
+<script type="text/javascript">
+    window.onload = function () {
+        Objeto = document.getElementsByTagName("a");
+        for (a = 0; a < Objeto.length; a++) {
+            Objeto[a].onclick = function () {
+                location.replace(this.href);
+                return false;
+            }
+        }
+    }
+</script>
+
 <body class="animated fadeInRight">
     <div class="section"></div>
     <main style="padding: 0">
@@ -34,21 +46,23 @@
                             </div>
                             <label style='float: right;'>
                                 <a class="waves-effect waves-light" href="recordar.html">Olvidó su contraseña?</a>
-                            </div>    
-                        </label>
-                    </div><br>
-                    <center>
-                        <div class='row'>
-                            <button id="btn-enviar" type='submit' class='btn waves-effect indigo'><i class="material-icons right"></i>Entrar</button>
                         </div>
-                    </center>
+                        </label>
+                </div>
+                <br>
+                <center>
+                    <div class='row'>
+                        <button id="btn-enviar" type='submit' class='btn waves-effect indigo'>
+                            <i class="material-icons right"></i>Entrar</button>
+                    </div>
+                </center>
                 </form>
             </div>
-        </div>
-        <a href="creacion_cuenta.html">Crear una cuenta</a>
-    </center>
-    <div class="section"></div>
-    <div class="section"></div>
+            </div>
+            <a href="creacion_cuenta.html">Crear una cuenta</a>
+        </center>
+        <div class="section"></div>
+        <div class="section"></div>
 </body>
 
 
