@@ -1,58 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>App Legal</title>
-    <meta charset="utf-8">
+	<meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="css/materialize.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" href="css/splash.css">
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.js"></script>
-    <script src="js/materialize.min.js"></script>
+	<title>Splash</title>
 </head>
-<body class="animated fadeInRight">
-    <div class="section"></div>
-    <main style="padding: 0">
-        <center>
-            <img class="logo" src="img/logo.png">
-            <h5 class="indigo-text texto1">Por favor, inicie sesión con su cuenta</h5>
-            <div class="container">
-                <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
-                    <form id="formulario" class="col s12" method="post">
-                        <div class='row'>
-                            <div class='col s12'></div>
-                        </div>
-                        <div class='row'>
-                            <div class='input-field col s12'>
-                                <input class='validate' type='text' name='user' id='user' required="" aria-required="true">
-                                <label for='email' style="text-align: left;">Usuario *</label>
-                            </div>
-                        </div>
-                        <div class='row'>
-                            <div class='input-field col s12'>
-                                <input class='validate' type='password' name='password' id='password' required="" aria-required="true">
-                                <label for='password' style="text-align: left;">Contraseña</label>
-                            </div>
-                            <label style='float: right;'>
-                                <a class="waves-effect waves-light" href="recordar.html">Olvidó su contraseña?</a>
-                            </div>    
-                        </label>
-                    </div><br>
-                    <center>
-                        <div class='row'>
-                            <button id="btn-enviar" type='submit' class='btn waves-effect indigo'><i class="material-icons right"></i>Entrar</button>
-                        </div>
-                    </center>
-                </form>
-            </div>
-        </div>
-        <a href="creacion_cuenta.html">Crear una cuenta</a>
-    </center>
-    <div class="section"></div>
-    <div class="section"></div>
+<body>
+	<div class="preload" id="preload">
+		<div class="logo">
+            <img class="img responsive-img" src="img/logo.png">
+			<div class="loader-frame">
+				<div class="loader1" id="loader1"></div>
+				<div class="loader2" id="loader2"></div>
+			</div>
+		</div>
+	</div>
 </body>
+<script>
+(function(){
+ 
+ var preload = document.getElementById("preload");
+ var loading = 0;
+ var id = setInterval(frame, 64);
 
-
+ function frame(){
+  if(loading == 100) {
+   clearInterval(id);
+   window.open("login.html", "_self");
+  }
+  else {
+   loading = loading + 1;
+   if(loading == 90) {
+    preload.style.animation = "fadeout 1s ease";
+   }
+  }
+}
+})();
+</script>
 </html>
