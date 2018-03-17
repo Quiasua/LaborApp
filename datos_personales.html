@@ -1,46 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+	<!--Import Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Creación De Cuenta</title>
 	<meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="css/materialize.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script src="js/jquery.js"></script>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="css/materialize.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/materialize.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
+	<script src="js/creacion_cuenta.js"></script>
 </head>
-<body class="animated fadeInRight">
-	<div class="section"></div>
+
+<body>
 	<div class="container">
 		<div class="row recuperacion">
-			<div class="col s12">
-			<form action="">
-				<center>
-					<h4 class="indigo-text">¿Cómo te llamas?</h4>
-					<div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;position: relative;	top: 50px;">
-						<div class="row">
-							<div class="input-field col s6">
-								<input id="Nombre" type="text" class="validate" required="" aria-required="true">
-								<label class="active" for="Nombre" style="text-align: left;">Nombre*</label>
+			<form>
+				<div class="col s12 animated fadeInRight" id="primera">
+					<center>
+						<h4 class="indigo-text">¿Cómo te llamas?</h4>
+						<center>
+							<div class="card horizontal" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;position: relative;	top: 50px;">
+								<div class="row">
+									<div class="input-field col s6">
+										<input id="Nombre" type="text" class="validate">
+										<label class="active" for="Nombre" style="text-align: left;">Nombre*</label>
+										<p id="campo">campo requerido</p>
+									</div>
+									<div class="input-field col s6">
+										<input id="Apellido" type="text" class="validate">
+										<label class="active" for="Apellido" style="text-align: left;">Apellido*</label>
+										<p id="campo1">campo requerido</p>
+									</div>
+								</div>
 							</div>
-							<div class="input-field col s6">
-								<input id="Apellido" type="text" class="validate" required="" aria-required="true">
-								<label class="active" for="Apellido" style="text-align: left;">Apellido*</label>
-							</div>
-						</div>
-					</div>
-				</center>
-				<center><button id="btn-enviar" type='submit' class='btn waves-effect indigo' style="top: 50px;">
-					<i class="material-icons right"></i>Siguiente</button>
-				<br>
-			
+						</center>
+						<button id="siguiente" type='button' class='btn waves-effect indigo' style="top: 50px;">Siguiente</button>
+					</center>
 				</div>
 			</form>
-			</div>
-		</div>    
+			<form>
+				<br>
+				<div class="col s12 animated fadeInRight ocultar" id="segunda">
+					<center>
+						<h4 class="indigo-text">Fecha de nacimiento</h4>
+						<div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;position: relative;	top: 50px;">
+							<form id="formulaireDate">
+								<div class="row">
+									<div class="col s8">
+										<input type="date" placeholder="DD/MM/AA" class="datepicker" data-rule-dateWithMoment="true" disabled />
+									</div>
+									<div class="col s2">
+										<a class="btn-floating btn-large waves-effect waves-light trigger-datepicker">
+											<i class="material-icons">event</i>
+										</a>
+									</div>
+								</div>
+							</form>
+						</div>
+						<center>
+							<button id="siguiente2" type='button' class='btn waves-effect indigo' style="top: 50px;">
+								<i class="material-icons right"></i>Siguiente</button>
+						</center>
+					</center>
+				</div>
+			</form>
+		</div>
+	</div>
 	</div>
 </body>
+
 </html>
