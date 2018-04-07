@@ -7,7 +7,7 @@ $(document).ready(function () {
             // allow any non-whitespace characters as the host part
             return this.optional(element) || moment(value, "DD/MM/YYYY", true).isValid();
         }, 'Please enter a valid date with moment.');
-        
+
         $('.datepicker').pickadate({
             editable: true,
             selectMonths: true,
@@ -36,6 +36,7 @@ $(document).ready(function () {
 
     $("#campo").addClass("ocultar");
     $("#campo1").addClass("ocultar");
+    $("#valFecha").addClass("ocultar");
 
     $("#siguiente").click(function () {
         if ($("#Nombre").val() != "" && $("#Apellido").val() != "") {
@@ -63,11 +64,20 @@ $(document).ready(function () {
                 $("#Apellido").css({
                     "border-bottom": "1px solid #26a29a"
                 });
-
             }
 
 
         }
+
+    });
+
+    $("#siguiente2").click(function () {
+        if ($("#fecha").val() != "") {
+            $("#segunda").addClass("ocultar");
+            $("#tercera").removeClass("ocultar");
+        } else {
+            
+        }        
 
     });
 })
