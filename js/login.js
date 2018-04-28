@@ -1,11 +1,12 @@
 $(document).ready(function () {
+    var server = "52.13.153.72";
     $("#btn-enviar").click(function () {
         if ($("#user").val() != "" && $("#password").val() != "") {
             var filtro = {
                 filtroUno: $("#user").val(),
                 filtroDos: $("#password").val()
             }
-            var url_persona = "http://192.168.43.90:8080/laborapp/api/legalapp/consultarUsuario";
+            var url_persona = "http://"+server+":8080/laborapp/api/legalapp/consultarUsuario";
             $.ajax({
                 url: url_persona,
                 type: 'POST',
