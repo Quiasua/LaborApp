@@ -21,15 +21,12 @@
     <script src="js/jquery.js"></script>
     <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
     <script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
+    <script src="js/funciones-materialize.js"></script>
     <script src="js/creacion_cuenta.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script 
-         src = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js">
-      </script>
-      <link rel = "stylesheet" 
-         href = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
-      <link rel = "stylesheet" 
-         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+    <link rel = "stylesheet" href = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+    <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
     
 </head>
 
@@ -61,8 +58,8 @@
                                         </select>
                                         <label>Tipo de Contrato</label>  
                                     </div>
-                                    <div class="input-field col s12">
-                                        <select>
+                                    <div class="input-field col s12 " >
+                                        <select  id="salario">
                                           <option value="" disabled selected>Choose your option</option>
                                           <option value="1">Option 1</option>
                                           <option value="2">Option 2</option>
@@ -76,9 +73,9 @@
                                       <span class = "mdl-checkbox__label">Otro</span>
                                       </label>	       
                                     </div>
-                                    <div class="input-field col s12">
-										<input id="Nombre" type="text" class="validate">
-										<label class="active" for="Nombre" style="text-align: left;">Valor</label>
+                                    <div class="input-field col s11">
+										<input id="otroSalario" type="text" class="validate" style="display:none;">
+										<label id="tituloOtroSalario" class="active" for="Otro Salario" style="text-align: left;display:none;">Valor</label>
 										<p id="campo">campo requerido</p>
 									</div>  
                                 </div>
