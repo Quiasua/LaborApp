@@ -81,7 +81,7 @@ $(document).ready(function () {
         }
 
     });
-
+    var server = "52.13.153.72";
     $("#siguiente3").click(function () {
         if ($("#contrase").val() != "" && $("#correo").val() != "") {
             var cliente = {
@@ -96,8 +96,8 @@ $(document).ready(function () {
                 'usuario': $("#correo").val(),
                 'contrasena': $("#contrase").val()
             }
-            var urlSer = "http://192.168.43.90:8080/laborapp/api/legalapp/registrarUsuario";
-            var url_persona = "http://192.168.43.90:8080/laborapp/api/legalapp/registrarPersona";
+            var urlSer = "http://"+server+":8080/laborapp/api/legalapp/registrarUsuario";
+            var url_persona = "http://"+server+":8080/laborapp/api/legalapp/registrarPersona";
             var link = document.URL;
             var urls = new URL(link);
             var nombre = urls.searchParams.get("nombre");
