@@ -74,10 +74,8 @@
 
 #campo,#campo1{
 	font: caption;
-	color:white;
+	color:rgb(212, 34, 34);
 	margin-top: -15px;
-	background-color: rgb(212, 34, 34);
-	border-radius: 2px;
 }
 #mensaje{
 	font: caption;
