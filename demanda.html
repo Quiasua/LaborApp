@@ -58,8 +58,8 @@
                                         </select>
                                         <label>Tipo de Contrato</label>  
                                     </div>
-                                    <div class="input-field col s12 " >
-                                        <select  id="salario">
+                                    <div class="input-field col s12 " style="display:block;">
+                                        <select  class="salario" >
                                           <option value="" disabled selected>Choose your option</option>
                                           <option value="1">Option 1</option>
                                           <option value="2">Option 2</option>
@@ -67,13 +67,12 @@
                                         </select>
                                         <label>Salario</label>  
                                     </div>
-                                    <div class="inpunt-fiel col s6">
+                                    <div class="inpunt-fiel col s12">
                                       <label class = "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for = "checkbox2">
-                                      <input type = "checkbox" id = "checkbox2" class = "mdl-checkbox__input">
-                                      <span class = "mdl-checkbox__label">Otro</span>
+                                      <input type = "checkbox" id = "checkbox2" class = "mdl-checkbox__input"><p>Otro</p>
                                       </label>	       
                                     </div>
-                                    <div class="input-field col s12">
+                                    <div class="input-field col s6">
 										<input id="otroSalario" type="text" class="validate" style="display:none;">
 										<label id="tituloOtroSalario" class="active" for="Otro Salario" style="text-align: left;display:none;">Valor</label>
 										<p id="campo">campo requerido</p>
