@@ -151,7 +151,7 @@ $(document).ready(function () {
                     }
                 })
               }else{
-                Materialize.toast('Su correo debe .com', 4000)
+                Materialize.toast('Su correo debe contener .com', 4000)
               }
             
             }else{
