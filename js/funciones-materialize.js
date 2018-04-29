@@ -1,11 +1,13 @@
 $(document).ready(function(){ //Funcion al momento de recargar la página
     $("#checkbox2").click( function(){
         if( $(this).is(':checked') ){
-            $("#otroSalario,#tituloOtroSalario,.salario").css("display","block"); 
-            $(".salario").prop('disabled', true);
-           //$('input#salario').attr('disabled','disabled');   
+            $("#otroSalario,#tituloOtroSalario").css("display","block");
+            $("select#salario").prop('disabled', true);
+            $('select').material_select();   
         }else{
-            $("#otroSalario,#tituloOtroSalario,.salario").css("display","none");
+            $("#otroSalario,#tituloOtroSalario").css("display","none");
+            $("select#salario").prop('disabled', false);
+            $('select').material_select();
         }
      });
      
