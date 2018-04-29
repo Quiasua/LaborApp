@@ -10,6 +10,8 @@ $(document).ready(function(){ //Funcion al momento de recargar la página
             $('select').material_select();//Para materialize
         }
     });
+
+   
      
 });
 
