@@ -76,7 +76,14 @@
 	font: caption;
 	color:white;
 	margin-top: -15px;
-	background-color: red;
+	background-color: rgb(212, 34, 34);
+	border-radius: 2px;
+}
+#mensaje{
+	font: caption;
+	color:#050505;
+	margin-top: -15px;
+	background-color: rgb(230, 209, 28);
 	border-radius: 2px;
 }
 @font-face {

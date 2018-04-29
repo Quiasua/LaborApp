@@ -7,13 +7,19 @@ $(document).ready(function () {
             // allow any non-whitespace characters as the host part
             return this.optional(element) || moment(value, "DD/MM/YYYY", true).isValid();
         }, 'Please enter a valid date with moment.');
-
+        var fechaActual = new Date();
+        fechaActual.setFullYear(fechaActual.getFullYear()-18);
         $('.datepicker').pickadate({
             editable: true,
             selectMonths: true,
-            selectYears: 15,
+            selectYears: 100,
             firstDay: true,
+            closeOnSelect: true,
+            today: false,
+            clear: false,
+            close: 'Seleccionar',
             format: 'dd/mm/yyyy',
+            max: fechaActual,
             // pour fermer le datepicker quand on sélectionne une date
             onSet: function (ele) {
                 if (ele.select) {
@@ -36,8 +42,10 @@ $(document).ready(function () {
 
     $("#campo").addClass("ocultar");
     $("#campo1").addClass("ocultar");
+    $("#mensaje").addClass("ocultar");
     $("#valFecha").addClass("ocultar");
     var nombre;
+    var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
     $("#siguiente").click(function () {
         if ($("#Nombre").val() != "" && $("#Apellido").val() != "") {
             window.location.href = "fecha.html?nombre=" + $("#Nombre").val() + "&apellido=" + $("#Apellido").val();
@@ -81,14 +89,14 @@ $(document).ready(function () {
         }
 
     });
-    var server = "52.13.153.72";
+
     $("#siguiente3").click(function () {
         if ($("#contrase").val() != "" && $("#correo").val() != "") {
             var cliente = {
                 'nombre': '',
                 'apellido': '',
                 'fechaNacimiento': '',
-                'idUsuario': ''
+                'idUsuario': '',
             }
 
             var usuario = {
@@ -96,8 +104,8 @@ $(document).ready(function () {
                 'usuario': $("#correo").val(),
                 'contrasena': $("#contrase").val()
             }
-            var urlSer = "http://"+server+":8080/laborapp/api/legalapp/registrarUsuario";
-            var url_persona = "http://"+server+":8080/laborapp/api/legalapp/registrarPersona";
+            var urlSer = "http://52.13.153.72:8080/laborapp/api/legalapp/registrarUsuario";
+            var url_persona = "http://52.13.153.72:8080/laborapp/api/legalapp/registrarPersona";
             var link = document.URL;
             var urls = new URL(link);
             var nombre = urls.searchParams.get("nombre");
@@ -153,6 +161,10 @@ $(document).ready(function () {
                     "border-bottom": "1px solid #F44336"
                 })
                 $("#campo1").removeClass("ocultar");
+            } 
+            if($("#correo") == "" || !expr.test($("#correo"))){
+                $("#mensaje").fadeIn("slow");
+                return false;
             } else {
                 $("#campo1").addClass("ocultar");
                 $("#correo").css({
