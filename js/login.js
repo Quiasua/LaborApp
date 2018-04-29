@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var server = "52.13.153.72";
+    var server = "localhost";
     $("#btn-enviar").click(function () {
         if ($("#user").val() != "" && $("#password").val() != "") {
             var filtro = {
@@ -13,6 +13,9 @@ $(document).ready(function () {
                 dataType: 'json',
                 data: JSON.stringify(filtro),
                 contentType: 'application/json',
+                headers: {
+                    "Authorization": "Admin"
+                  },
                 success: function (data) {
                     console.log(data);
                     if (data != null) {
