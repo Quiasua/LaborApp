@@ -90,60 +90,74 @@ $(document).ready(function () {
 
     });
 
+    var server = "52.13.153.72";
     $("#siguiente3").click(function () {
-        if ($("#contrase").val() != "" && $("#correo").val() != "") {
-            var cliente = {
-                'nombre': '',
-                'apellido': '',
-                'fechaNacimiento': '',
-                'idUsuario': '',
-            }
-
-            var usuario = {
-                'descripcion': 'Se realiza el registro',
-                'usuario': $("#correo").val(),
-                'contrasena': $("#contrase").val()
-            }
-            var urlSer = "http://52.13.153.72:8080/laborapp/api/legalapp/registrarUsuario";
-            var url_persona = "http://52.13.153.72:8080/laborapp/api/legalapp/registrarPersona";
-            var link = document.URL;
-            var urls = new URL(link);
-            var nombre = urls.searchParams.get("nombre");
-            var apellido = urls.searchParams.get("apellido");
-            var fecha = urls.searchParams.get("fecha");
-            cliente.nombre = nombre;
-            cliente.apellido = apellido;
-            var fechaEnviar = new Date(fecha);
-            cliente.fechaNacimiento = fechaEnviar.getFullYear() + "-" + (fechaEnviar.getMonth() + 1) + "-" + fechaEnviar.getDate();
-            $("#campo").addClass("ocultar");
-            $("#campo1").addClass("ocultar");
-            console.log(JSON.stringify(usuario));
-            $.ajax({
-                url: urlSer,
-                type: 'POST',
-                dataType: 'json',
-                data: JSON.stringify(usuario),
-                contentType: 'application/json',
-                success: function (data) {
-                    console.log(data);
-                    cliente.idUsuario = data;
-                    $.ajax({
-                        url: url_persona,
-                        type: 'POST',
-                        dataType: 'json',
-                        data: JSON.stringify(cliente),
-                        contentType: 'application/json',
-                        success: function (data) {
-                            console.log(data);
-                            Materialize.toast('Se realizo el registro', 4000)
-                            setTimeout(function () {
-                                login();
-                            }, 1000);
-                            // $('#modal1').openModal();
-                        }
-                    })
+        var validarCorreo = $("#correo").val();       
+        var espacioCorreo =  validarCorreo.split("@");
+        var puntoCorreo =  validarCorreo.split(".com");
+        if ($("#contrase").val() != "" && $("#correo").val() != "" ) {          
+          if(espacioCorreo.length >= 2)  {
+              if(puntoCorreo.length>=2){
+                var cliente = {
+                    'nombre': '',
+                    'apellido': '',
+                    'fechaNacimiento': '',
+                    'idUsuario': ''
                 }
-            })
+                
+                var usuario = {
+                    'descripcion': 'Se realiza el registro',
+                    'usuario': $("#correo").val(),
+                    'contrasena': $("#contrase").val()
+                }
+                var urlSer = "http://"+server+":8080/laborapp/api/legalapp/registrarUsuario";
+                var url_persona = "http://"+server+":8080/laborapp/api/legalapp/registrarPersona";
+                var link = document.URL;
+                var urls = new URL(link);
+                var nombre = urls.searchParams.get("nombre");
+                var apellido = urls.searchParams.get("apellido");
+                var fecha = urls.searchParams.get("fecha");
+                cliente.nombre = nombre;
+                cliente.apellido = apellido;
+                var fechaEnviar = new Date(fecha);
+                cliente.fechaNacimiento = fechaEnviar.getFullYear() + "-" + (fechaEnviar.getMonth() + 1) + "-" + fechaEnviar.getDate();
+                $("#campo").addClass("ocultar");
+                $("#campo1").addClass("ocultar");
+                console.log(JSON.stringify(usuario));
+                $.ajax({
+                    url: urlSer,
+                    type: 'POST',
+                    dataType: 'json',
+                    data: JSON.stringify(usuario),
+                    contentType: 'application/json',
+                    success: function (data) {
+                        console.log(data);
+                        cliente.idUsuario = data;
+                        $.ajax({
+                            url: url_persona,
+                            type: 'POST',
+                            dataType: 'json',
+                            data: JSON.stringify(cliente),
+                            contentType: 'application/json',
+                            success: function (data) {
+                                console.log(data);
+                                Materialize.toast('Se realizo el registro', 4000)
+                                setTimeout(function () {
+                                    login();
+                                }, 1000);
+                                // $('#modal1').openModal();
+                            }
+                        })
+                    }
+                })
+              }else{
+                Materialize.toast('Su correo debe .com', 4000)
+              }
+            
+            }else{
+            Materialize.toast('Su correo debe contener @', 4000)
+          }      
+            
         } else {
             if ($("#contrase").val() == "") {
                 $("#contrase").css({
@@ -161,10 +175,6 @@ $(document).ready(function () {
                     "border-bottom": "1px solid #F44336"
                 })
                 $("#campo1").removeClass("ocultar");
-            } 
-            if($("#correo") == "" || !expr.test($("#correo"))){
-                $("#mensaje").fadeIn("slow");
-                return false;
             } else {
                 $("#campo1").addClass("ocultar");
                 $("#correo").css({
