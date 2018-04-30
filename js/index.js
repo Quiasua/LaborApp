@@ -1,3 +1,5 @@
+
+  
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -47,8 +49,12 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+$(document).ready(function(){ 
+
 // SIDEBAR
-$(document).ready(function(){
+
+
   $('.button-collapse').sideNav({
       menuWidth: 300, // Default is 300
       edge: 'left', // Choose the horizontal origin
@@ -57,5 +63,15 @@ $(document).ready(function(){
     }
   );
   // START OPEN
-  $('.button-collapse').sideNav('show');
+  
+
+  $('.button-collapse').sideNav('hide');
+ 
+
+
+
+
 });
+
+
+
