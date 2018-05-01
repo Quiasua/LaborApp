@@ -8,12 +8,20 @@ $(document).ready(function () {
             return this.optional(element) || moment(value, "DD/MM/YYYY", true).isValid();
         }, 'Please enter a valid date with moment.');
 
-        $('.datepicker').pickadate({
-            editable: true,
-            selectMonths: true,
-            selectYears: 15,
-            firstDay: true,
-            format: 'dd/mm/yyyy',
+        var fechaActual = new Date();
+        fechaActual.setFullYear(fechaActual.getFullYear()-18);
+         $('.datepicker').pickadate({
+             editable: true,
+             selectMonths: true,
+           selectYears: 15,
+            selectYears: 100,
+             firstDay: true,
+            closeOnSelect: true,
+            today: false,
+            clear: false,
+            close: 'Seleccionar',
+             format: 'dd/mm/yyyy',
+            max: fechaActual,
             // pour fermer le datepicker quand on sélectionne une date
             onSet: function (ele) {
                 if (ele.select) {
