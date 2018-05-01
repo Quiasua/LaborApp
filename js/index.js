@@ -50,7 +50,49 @@ var app = {
     }
 };
 
+
 $(document).ready(function(){ 
+
+    $("#enviarcorreo").click(function () {
+        var link = document.URL;
+        var urls = new URL(link);
+        var server = "192.168.1.4";
+        var url_persona = "http://"+server+":8080/laborapp/api/legalapp/envioCorreo";
+        var nombre = urls.searchParams.get("user"); 
+        var id=Number(nombre);
+        var num = Number($("#telefono").val());
+        var enviar = {
+            filtroId:id,
+            filtroUno:$("#textarea1").val(),
+            filtroDosId: num
+        }
+         
+        
+        $.ajax({
+            url: url_persona,
+            type: 'POST',
+            dataType: 'json',
+            data: JSON.stringify(enviar),
+            contentType: 'application/json',
+            beforeSend: function (request) {
+                request.setRequestHeader("Authorization", "Admin");
+            },
+            success: function (data) {
+                console.log(data);
+                Materialize.toast('correo enviado', 4000)
+                setTimeout(function () {
+                }, 1000);
+            }
+        })
+        });
+        
+        $("#contactar").click(function () {
+            var link = document.URL;
+            var urls = new URL(link);
+            var id = urls.searchParams.get("user"); 
+            window.location.href="abogado.html?user="+id
+        
+        });
 
 // SIDEBAR
 var link = document.URL;
