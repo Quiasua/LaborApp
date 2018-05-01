@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     $(function () {
         moment.locale('es');
@@ -7,20 +6,18 @@ $(document).ready(function () {
             // allow any non-whitespace characters as the host part
             return this.optional(element) || moment(value, "DD/MM/YYYY", true).isValid();
         }, 'Please enter a valid date with moment.');
-
         var fechaActual = new Date();
         fechaActual.setFullYear(fechaActual.getFullYear()-18);
-         $('.datepicker').pickadate({
-             editable: true,
-             selectMonths: true,
-           selectYears: 15,
+        $('.datepicker').pickadate({
+            editable: true,
+            selectMonths: true,
             selectYears: 100,
-             firstDay: true,
+            firstDay: true,
             closeOnSelect: true,
             today: false,
             clear: false,
             close: 'Seleccionar',
-             format: 'dd/mm/yyyy',
+            format: 'dd/mm/yyyy',
             max: fechaActual,
             // pour fermer le datepicker quand on sélectionne une date
             onSet: function (ele) {
@@ -44,8 +41,10 @@ $(document).ready(function () {
 
     $("#campo").addClass("ocultar");
     $("#campo1").addClass("ocultar");
+    $("#mensaje").addClass("ocultar");
     $("#valFecha").addClass("ocultar");
     var nombre;
+    var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
     $("#siguiente").click(function () {
         if ($("#Nombre").val() != "" && $("#Apellido").val() != "") {
             window.location.href = "fecha.html?nombre=" + $("#Nombre").val() + "&apellido=" + $("#Apellido").val();
@@ -89,61 +88,75 @@ $(document).ready(function () {
         }
 
     });
+
     var server = "52.13.153.72";
     $("#siguiente3").click(function () {
-        if ($("#contrase").val() != "" && $("#correo").val() != "") {
-            var cliente = {
-                'nombre': '',
-                'apellido': '',
-                'fechaNacimiento': '',
-                'idUsuario': ''
-            }
-
-            var usuario = {
-                'descripcion': 'Se realiza el registro',
-                'usuario': $("#correo").val(),
-                'contrasena': $("#contrase").val()
-            }
-            var urlSer = "http://"+server+":8080/laborapp/api/legalapp/registrarUsuario";
-            var url_persona = "http://"+server+":8080/laborapp/api/legalapp/registrarPersona";
-            var link = document.URL;
-            var urls = new URL(link);
-            var nombre = urls.searchParams.get("nombre");
-            var apellido = urls.searchParams.get("apellido");
-            var fecha = urls.searchParams.get("fecha");
-            cliente.nombre = nombre;
-            cliente.apellido = apellido;
-            var fechaEnviar = new Date(fecha);
-            cliente.fechaNacimiento = fechaEnviar.getFullYear() + "-" + (fechaEnviar.getMonth() + 1) + "-" + fechaEnviar.getDate();
-            $("#campo").addClass("ocultar");
-            $("#campo1").addClass("ocultar");
-            console.log(JSON.stringify(usuario));
-            $.ajax({
-                url: urlSer,
-                type: 'POST',
-                dataType: 'json',
-                data: JSON.stringify(usuario),
-                contentType: 'application/json',
-                success: function (data) {
-                    console.log(data);
-                    cliente.idUsuario = data;
-                    $.ajax({
-                        url: url_persona,
-                        type: 'POST',
-                        dataType: 'json',
-                        data: JSON.stringify(cliente),
-                        contentType: 'application/json',
-                        success: function (data) {
-                            console.log(data);
-                            Materialize.toast('Se realizo el registro', 4000)
-                            setTimeout(function () {
-                                login();
-                            }, 1000);
-                            // $('#modal1').openModal();
-                        }
-                    })
+        var validarCorreo = $("#correo").val();       
+        var espacioCorreo =  validarCorreo.split("@");
+        var puntoCorreo =  validarCorreo.split(".com");
+        if ($("#contrase").val() != "" && $("#correo").val() != "" ) {          
+          if(espacioCorreo.length >= 2)  {
+              if(puntoCorreo.length>=2){
+                var cliente = {
+                    'nombre': '',
+                    'apellido': '',
+                    'fechaNacimiento': '',
+                    'idUsuario': ''
                 }
-            })
+                
+                var usuario = {
+                    'descripcion': 'Se realiza el registro',
+                    'usuario': $("#correo").val(),
+                    'contrasena': $("#contrase").val()
+                }
+                var urlSer = "http://"+server+":8080/laborapp/api/legalapp/registrarUsuario";
+                var url_persona = "http://"+server+":8080/laborapp/api/legalapp/registrarPersona";
+                var link = document.URL;
+                var urls = new URL(link);
+                var nombre = urls.searchParams.get("nombre");
+                var apellido = urls.searchParams.get("apellido");
+                var fecha = urls.searchParams.get("fecha");
+                cliente.nombre = nombre;
+                cliente.apellido = apellido;
+                var fechaEnviar = new Date(fecha);
+                cliente.fechaNacimiento = fechaEnviar.getFullYear() + "-" + (fechaEnviar.getMonth() + 1) + "-" + fechaEnviar.getDate();
+                $("#campo").addClass("ocultar");
+                $("#campo1").addClass("ocultar");
+                console.log(JSON.stringify(usuario));
+                $.ajax({
+                    url: urlSer,
+                    type: 'POST',
+                    dataType: 'json',
+                    data: JSON.stringify(usuario),
+                    contentType: 'application/json',
+                    success: function (data) {
+                        console.log(data);
+                        cliente.idUsuario = data;
+                        $.ajax({
+                            url: url_persona,
+                            type: 'POST',
+                            dataType: 'json',
+                            data: JSON.stringify(cliente),
+                            contentType: 'application/json',
+                            success: function (data) {
+                                console.log(data);
+                                Materialize.toast('Se realizo el registro', 4000)
+                                setTimeout(function () {
+                                    login();
+                                }, 1000);
+                                // $('#modal1').openModal();
+                            }
+                        })
+                    }
+                })
+              }else{
+                Materialize.toast('Su correo debe .com', 4000)
+              }
+            
+            }else{
+            Materialize.toast('Su correo debe contener @', 4000)
+          }      
+            
         } else {
             if ($("#contrase").val() == "") {
                 $("#contrase").css({
@@ -246,9 +259,4 @@ $(document).ready(function () {
 
         return obj;
     }
-
-
-
 })
-
-
