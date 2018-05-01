@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Materialize Sidenav</title>
+  <title>Contactar abogado</title>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
@@ -102,32 +102,27 @@
   </nav>
 
   <div class="container">
-    <form>
+    <form class="col s12">
       <div class="col s12" id="primera">
-        <center>
-          <h4 class="blue-text">¿Necesitas un abogado ?</h4>
+        <div class="row">
           <center>
-            <div class="card horizontal" style="display: inline-block; padding: 12px 48px 10px 48px; border: 1px solid #EEE;position: relative;	top: 25px;">
-              <div class="row">
+            <h4 class="blue-text">¿Necesitas un abogado?</h4>
+            <center>
+              <div class="card horizontal" style="display: inline-block; padding: 12px 48px 10px 48px; border: 1px solid #EEE;position: relative;	top: 25px;">
                 <div class="input-field col s12">
-                  <input id="Telefono" type="text" class="validate">
-                  <label class="active" for="Telefono" style="text-align: left;">Telefono*</label>
+                  <input id="Telefono" type="text" class="validate" onkeypress="return valida(event)" maxlength="10">
+                  <label class="active" for="Telefono" style="text-align: left;">Ingrese telefono contacto</label>
+                </div>
+                <div class="input-field col s12">
+                  <textarea maxlength="150" id="textarea1" class="materialize-textarea"></textarea>
+                  <label for="textarea1">Ingrese una breve descricpción</label>
                 </div>
               </div>
-              <div class="row">
-                  <form class="col s12">
-                    <div class="row">
-                      <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Textarea</label>
-                      </div>
-                    </div>
-                  </form>
-                </div>
+            </center>
+            <button id="siguiente" type='button' class='btn waves-effect blue' style="top: 50px;">Enviar</button>
           </center>
-          <button id="siguiente" type='button' class='btn waves-effect blue' style="top: 50px;">Enviar</button>
-        </center>
         </div>
+      </div>
     </form>
   </div>
 
@@ -135,5 +130,19 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
   <script src="js/index.js"></script>
 </body>
-
+<script>
+    function valida(e){
+        tecla = (document.all) ? e.keyCode : e.which;
+    
+        //Tecla de retroceso para borrar, siempre la permite
+        if (tecla==8){
+            return true;
+        }
+            
+        // Patron de entrada, en este caso solo acepta numeros
+        patron =/[0-9]/;
+        tecla_final = String.fromCharCode(tecla);
+        return patron.test(tecla_final);
+    }
+</script>
 </html>
