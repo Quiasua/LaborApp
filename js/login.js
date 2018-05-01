@@ -43,7 +43,7 @@ $(document).ready(function () {
                 success: function (data) {
                     console.log(data);
                     if (data != null) {
-                        window.location.href = "main.html";
+                        window.location.href = "main.html?user="+data.idUsuario;
                     } else {
                         Materialize.toast('Usuario y/o contraseña incorrectos', 4000)
                     }
