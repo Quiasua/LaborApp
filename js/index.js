@@ -53,7 +53,31 @@ var app = {
 $(document).ready(function(){ 
 
 // SIDEBAR
-
+var link = document.URL;
+var urls = new URL(link);
+var usuario = urls.searchParams.get("user");
+var server = "52.13.153.72";
+var url_persona = "http://"+server+":8080/laborapp/api/legalapp/consultarPersona";
+var filtroPersona = {
+    filtroId:0
+}
+var id = Number(usuario);
+filtroPersona.filtroId = id;
+$.ajax({
+    url: url_persona,
+    type: 'POST',
+    dataType: 'json',
+    data: JSON.stringify(filtroPersona),
+    contentType: 'application/json',
+    beforeSend: function (request) {
+        request.setRequestHeader("Authorization", "Admin");
+    },
+    success: function (data) {
+        console.log(data);
+        Materialize.toast('Se realizo el registro', 4000)
+        // $('#modal1').openModal();
+    }
+})
 
   $('.button-collapse').sideNav({
       menuWidth: 300, // Default is 300
