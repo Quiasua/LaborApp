@@ -101,9 +101,8 @@ $(document).ready(function () {
                     'nombre': '',
                     'apellido': '',
                     'fechaNacimiento': '',
-                    'idUsuario': ''
-                }
-                
+                    'idUsuario': 0
+                }                
                 var usuario = {
                     'descripcion': 'Se realiza el registro',
                     'usuario': $("#correo").val(),

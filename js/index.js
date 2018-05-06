@@ -56,7 +56,7 @@ $(document).ready(function(){
     $("#enviarcorreo").click(function () {
         var link = document.URL;
         var urls = new URL(link);
-        var server = "192.168.1.4";
+        var server = "52.13.153.72";
         var url_persona = "http://"+server+":8080/laborapp/api/legalapp/envioCorreo";
         var nombre = urls.searchParams.get("user"); 
         var id=Number(nombre);
