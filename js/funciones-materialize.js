@@ -45,7 +45,17 @@ $(document).ready(function(){ //Funcion al momento de recargar la página
         coincidePassword();
         });
     
-
+	$('select.tipo-identificacion').on('change',function(){//Funcion para seleccionar la dosificacion del option que 
+		var valorIdentificacionFrom=$(this).val();
+			if(valorIdentificacionFrom == 1){
+				$("#persona-natural").css("display","block");
+				$("#persona-legal").css("display","none");
+				
+			}else{
+				$("#persona-legal").css("display","block");
+				$("#persona-natural").css("display","none");
+			}
+	});	
 });
 
 
