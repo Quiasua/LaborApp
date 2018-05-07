@@ -9,7 +9,7 @@
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Datos del demandante</title>
+  <title>Hechos</title>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <link rel="stylesheet" href="css/style.css">
@@ -129,88 +129,32 @@
       <form>
         <div class="col s12 animated fadeInRight " id="">
           <center>
-            <h4 class="blue-text">Datos Demandante</h4>
+            <h4 class="blue-text">Hechos</h4>
             <center>
               <div class="card horizontal" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;position: relative;	top: 50px;">
                 <div class="row">
-                  <div class="input-field col s12">
-                    <select class="tipo-identificacion">
-                        <option value="" disabled selected>Elige tu opción</option>
-                        <option value="1">Cédula</option>
-                        <option value="2">Nit</option>
-                    </select>
-                    <label>Tipo de Identificacion</label>
-                  </div>
-                  <div class="input-field col s12 " id="persona-natural" style="display:none;">
-                    <div class="card-panel ">
-                            <div class="row row-persona-natural" >
-                                <div class="input-field col s12"><label class="active" style="text-align: left;">Persona Natural</label></div>
-                                    <div class="input-field col s12">
-                                      <input id="nombre-personal-natural" type="text" class="validate">
-                                      <label class="active" for="nombre-personal-natural" style="text-align: left;">Nombre*</label>
-                                      <!--<p id="campo1">campo requerido</p>-->
-									                  </div>
-									                  <div class="input-field col s12">
-                                      <input id="apellido-personal-natural" type="text" class="validate">
-                                      <label class="active" for="apellido-personal-natural" style="text-align: left;">Apellido*</label>
-                                      <!--<p id="campo1">campo requerido</p>-->
-                                    </div>
-                                    <div class="input-field col s12">
-                                      <input id="direccion-personal-natural" type="text" class="validate">
-                                      <label class="active" for="direccion-personal-natural" style="text-align: left;">Direccion*</label>
-                                      <!--<p id="campo1">campo requerido</p>-->
-                                    </div>
-                                    <div class="input-field col s12">
-                                      <input id="telefono-personal-natural" type="text" class="validate">
-                                      <label class="active" for="telefono-personal-natural" style="text-align: left;">Telefono*</label>
-                                      <!--<p id="campo1">campo requerido</p>-->
-                                    </div>
-                                    <div class="input-field col s12">
-                                      <input id="identificacion-personal-natural" type="text" class="validate">
-                                      <label class="active" for="identificacion-personal-natural" style="text-align: left;">N° Identificacion</label>
-                                      <!--<p id="campo1">campo requerido</p>-->
-                                    </div>
-								            </div>
-                    </div>     
-                  </div>
-                  <div class="input-field col s12" id="persona-legal" style="display:none;">
-                    <div class="card-panel">
-                      <div class="row row-persona-legal">
-                        <div class="input-field col s12"><label class="active"  style="text-align: left;">Persona Legal</label></div>
-                          <div class="input-field col s12">
-                            <input id="nombre-personal-legal" type="text" class="validate">
-                            <label class="active" for="nombre-personal-legal" style="text-align: left;">Nombre*</label>
-                            <!--<p id="campo1">campo requerido</p>-->
-                          </div>
-                          <div class="input-field col s12">
-                            <input id="apellido-personal-legal" type="text" class="validate">
-                            <label class="active" for="apellido-personal-legal" style="text-align: left;">Apellido*</label>
-                            <!--<p id="campo1">campo requerido</p>-->
-                          </div>
-                          <div class="input-field col s12">
-                            <input id="direccion-personal-legal" type="text" class="validate">
-                            <label class="active" for="direccion-personal-legal" style="text-align: left;">Direccion*</label>
-                            <!--<p id="campo1">campo requerido</p>-->
-                          </div>
-                          <div class="input-field col s12">
-                            <input id="telefono-personal-legal" type="text" class="validate">
-                            <label class="active" for="telefono-personal-legal" style="text-align: left;">Telefono*</label>
-                            <!--<p id="campo1">campo requerido</p>-->
-                          </div>
-                          <div class="input-field col s12"><label class="active" style="text-align: left;margin-top:3px;">Empresa</label></div>
-                          <div class="input-field col s12">
-                            <input id="empresa-personal-legal" type="text" class="validate">
-                            <label class="active" for="empresa-personal-legal" style="text-align: left;">Nombre Empresa*</label>
-                            <!--<p id="campo1">campo requerido</p>-->
-                          </div>
-                          <div class="input-field col s12">
-                            <input id="direccion-empresa-personal-legal" type="text" class="validate">
-                            <label class="active" for="direccion-empresa-personal-legal" style="text-align: left;">Direccion*</label>
-                            <!--<p id="campo1">campo requerido</p>-->
-                          </div>
-                      </div>
-                    </div>     
-                  </div>
+                    <div class="input-field col s12">
+                        <textarea id="textarea2" class="materialize-textarea version-hechos" data-length="300"></textarea>
+                        <label for="textarea2">Describa la version de los hechos</label>
+                    </div>
+                    <div class="input-field col s12" style="margin-bottom:10px;"><label >Cargar Evidencia</label></div>
+                    <div class="input-field col s12">  
+                        <div class="file-field input-field">
+                            <div class="btn">
+                            <span>Archivo</span>
+                            <input type="file" multiple>
+                            </div>
+                            <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Sube tu evidencia">
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="input-field col s6">
+                        <a class="waves-effect waves-light btn">button</a>
+                    </div>
+                    <div class="input-field col s6">
+                        <a class="waves-effect waves-light btn">button</a>
+                    </div>
                 </div>
               </div>
             </center>
