@@ -40,6 +40,70 @@ $(document).ready(function(){ //Funcion al momento de recargar la página
 	span.text(confirmacion).removeClass("negacion").addClass('confirmacion');
 	}
 	}
+
+		// initialize
+	$('.materialSelect').material_select();
+
+	// setup listener for custom event to re-initialize on change
+	$('.materialSelect').on('contentChanged', function() {
+		$(this).material_select();
+	});
+
+	 $.ajax({
+        url: "http://52.13.153.72:8080/laborapp/api/legalapp/consultarTipoConflicto",
+        type: 'GET',
+        beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Admin");
+        },
+        success: function (data) {
+			/*console.log(data);
+			var html = ''; //Varaible para imprimir
+			var html2 = ''; //Variable para imprimir*/
+			var len = data.length; //Varible para contador
+			for (var i = -0; i < len; i++) { //for para traer la lista de colores
+				//html += '<li class><span>'+data[i].descripcion+'</span></li>';
+				//html2 += '<option value="'+data[i].idTipoConflicto+'">'+data[i].descripcion+'</option>';
+				var html2 = ''; //Variable para imprimir
+				html2 += '<option value="'+data[i].idTipoConflicto+'">'+data[i].descripcion+'</option>'
+				$("#tipoConflicto").append(html2);
+				$("#tipoConflicto").trigger('contentChanged');
+			}
+			/*$('.select-dropdown').append(html);
+			$('#colores').append(html2);
+			$('#tipoConflicto').append(html2); //Juan //Imprimir listado de colores en Desmoldantes 
+			console.log(res);*/
+			
+        }
+    });
+
+
+    // tipo de conflicto
+    $.ajax({
+        url: "http://52.13.153.72:8080/laborapp/api/legalapp/consultarSalarios",
+        type: 'GET',
+        beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Admin");
+        },
+        success: function (res) {
+            console.log(res);
+        }
+    });
+
+    // tipo de conflicto
+    $.ajax({
+        url: "http://52.13.153.72:8080/laborapp/api/legalapp/consultarTipoContrato",
+        type: 'GET',
+        beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Admin");
+        },
+        success: function (res) {
+            console.log(res);
+        }
+    });
+
+    $('#tipConflico').append(new Option('Foo', 'foo', true, true));
+
+
         //ejecuto la función al soltar la tecla
         pass2.keyup(function(){
         coincidePassword();

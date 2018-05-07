@@ -46,7 +46,7 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     console.log(data);
-                    if (data != null) {
+                    if (data.usuario != null) {
                         window.location.href = "main.html?user=" + data.idUsuario;
                     } else {
                         Materialize.toast('Usuario y/o contraseña incorrectos', 4000)

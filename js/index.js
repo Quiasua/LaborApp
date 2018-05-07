@@ -1,5 +1,5 @@
 
-  
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -20,25 +20,25 @@
  */
 var app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
         this.bindEvents();
     },
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
+    bindEvents: function () {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
+    onDeviceReady: function () {
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
+    receivedEvent: function (id) {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -51,90 +51,87 @@ var app = {
 };
 
 
-$(document).ready(function(){ 
-
+$(document).ready(function () {  
     $("#enviarcorreo").click(function () {
         var link = document.URL;
         var urls = new URL(link);
         var server = "52.13.153.72";
-        var url_persona = "http://"+server+":8080/laborapp/api/legalapp/envioCorreo";
-        var nombre = urls.searchParams.get("user"); 
-        var id=Number(nombre);
+        var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/envioCorreo";
+        var nombre = urls.searchParams.get("user");
+        var id = Number(nombre);
         var num = Number($("#telefono").val());
         var enviar = {
-            filtroId:id,
-            filtroUno:$("#textarea1").val(),
+            filtroId: id,
+            filtroUno: $("#textarea1").val(),
             filtroDosId: num
         }
-         
-        
-        $.ajax({
-            url: url_persona,
-            type: 'POST',
-            dataType: 'json',
-            data: JSON.stringify(enviar),
-            contentType: 'application/json',
-            beforeSend: function (request) {
-                request.setRequestHeader("Authorization", "Admin");
-            },
-            success: function (data) {
-                console.log(data);
-                Materialize.toast('correo enviado', 4000)
-                setTimeout(function () {
-                }, 1000);
-            }
-        })
-        });
-        
-        $("#contactar").click(function () {
-            var link = document.URL;
-            var urls = new URL(link);
-            var id = urls.searchParams.get("user"); 
-            window.location.href="abogado.html?user="+id
-        
-        });
 
-// SIDEBAR
-var link = document.URL;
-var urls = new URL(link);
-var usuario = urls.searchParams.get("user");
-var server = "52.13.153.72";
-var url_persona = "http://"+server+":8080/laborapp/api/legalapp/consultarPersona";
-var filtroPersona = {
-    filtroId:0
-}
-var id = Number(usuario);
-filtroPersona.filtroId = id;
-$.ajax({
-    url: url_persona,
-    type: 'POST',
-    dataType: 'json',
-    data: JSON.stringify(filtroPersona),
-    contentType: 'application/json',
-    beforeSend: function (request) {
-        request.setRequestHeader("Authorization", "Admin");
-    },
-    success: function (data) {
-        console.log(data);
-        Materialize.toast('Se realizo el registro', 4000)
-        // $('#modal1').openModal();
+        if (nombre != "null") {
+            $.ajax({
+                url: url_persona,
+                type: 'POST',
+                dataType: 'json',
+                data: JSON.stringify(enviar),
+                contentType: 'application/json',
+                beforeSend: function (request) {
+                    request.setRequestHeader("Authorization", "Admin");
+                },
+                success: function (data) {
+                    console.log(data);
+                    $("#telefono").attr("");
+                    $("#textarea1").attr("");
+                    Materialize.toast('correo enviado', 3000)
+                    setTimeout(function () {
+                        window.location.href = "main.html";
+                    }, 4000);
+                }
+            })
+        } else {
+            Materialize.toast('Usted ya envio una peticion en un correo', 4000)
+        }
+    });
+
+    $("#contactar").click(function () {
+        var link = document.URL;
+        var urls = new URL(link);
+        var id = urls.searchParams.get("user");
+        window.location.href = "abogado.html?user=" + id
+
+    });
+
+    // SIDEBAR
+    var link = document.URL;
+    var urls = new URL(link);
+    var usuario = urls.searchParams.get("user");
+    var server = "52.13.153.72";
+    var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/consultarPersona";
+    var filtroPersona = {
+        filtroId: 0
     }
-})
+    var id = Number(usuario);
+    filtroPersona.filtroId = id;
+    $.ajax({
+        url: url_persona,
+        type: 'POST',
+        dataType: 'json',
+        data: JSON.stringify(filtroPersona),
+        contentType: 'application/json',
+        beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Admin");
+        },
+    })
 
-  $('.button-collapse').sideNav({
-      menuWidth: 300, // Default is 300
-      edge: 'left', // Choose the horizontal origin
-      closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-      draggable: true // Choose whether you can drag to open on touch screens
+    $('.button-collapse').sideNav({
+        menuWidth: 300, // Default is 300
+        edge: 'left', // Choose the horizontal origin
+        closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        draggable: true // Choose whether you can drag to open on touch screens
     }
-  );
-  // START OPEN
-  
-
-  $('.button-collapse').sideNav('hide');
- 
+    );
+    // START OPEN
 
 
+    $('.button-collapse').sideNav('hide');
 
 
 });

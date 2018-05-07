@@ -100,13 +100,13 @@ $(document).ready(function () {
                 var cliente = {
                     'nombre': '',
                     'apellido': '',
-                    'fechaNacimiento': '',
-                    'idUsuario': 0
+                    'fechaNacimiento': ''
                 }                
                 var usuario = {
                     'descripcion': 'Se realiza el registro',
                     'usuario': $("#correo").val(),
-                    'contrasena': $("#contrase").val()
+                    'contrasena': $("#contrase").val(),
+                    'idPersona':0
                 }
                 var urlSer = "http://"+server+":8080/laborapp/api/legalapp/registrarUsuario";
                 var url_persona = "http://"+server+":8080/laborapp/api/legalapp/registrarPersona";
@@ -123,20 +123,26 @@ $(document).ready(function () {
                 $("#campo1").addClass("ocultar");
                 console.log(JSON.stringify(usuario));
                 $.ajax({
-                    url: urlSer,
+                    url: url_persona,
                     type: 'POST',
                     dataType: 'json',
-                    data: JSON.stringify(usuario),
+                    data: JSON.stringify(cliente),
                     contentType: 'application/json',
+                    beforeSend: function (request) {
+                        request.setRequestHeader("Authorization", "Admin");
+                    },
                     success: function (data) {
                         console.log(data);
-                        cliente.idUsuario = data;
+                        usuario.idPersona = data;
                         $.ajax({
-                            url: url_persona,
+                            url: urlSer,
                             type: 'POST',
                             dataType: 'json',
-                            data: JSON.stringify(cliente),
+                            data: JSON.stringify(usuario),
                             contentType: 'application/json',
+                            beforeSend: function (request) {
+                                request.setRequestHeader("Authorization", "Admin");
+                            },
                             success: function (data) {
                                 console.log(data);
                                 Materialize.toast('Se realizo el registro', 4000)
