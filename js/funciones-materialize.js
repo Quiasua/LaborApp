@@ -56,22 +56,23 @@ $(document).ready(function(){ //Funcion al momento de recargar la página
             request.setRequestHeader("Authorization", "Admin");
         },
         success: function (data) {
-			/*console.log(data);
+			console.log(data);
 			var html = ''; //Varaible para imprimir
-			var html2 = ''; //Variable para imprimir*/
+			var html2 = ''; //Variable para imprimir
 			var len = data.length; //Varible para contador
 			for (var i = -0; i < len; i++) { //for para traer la lista de colores
-				//html += '<li class><span>'+data[i].descripcion+'</span></li>';
-				//html2 += '<option value="'+data[i].idTipoConflicto+'">'+data[i].descripcion+'</option>';
-				var html2 = ''; //Variable para imprimir
+				html += '<li class><span>'+data[i].descripcion+'</span></li>';
+				html2 += '<option value="'+data[i].idTipoConflicto+'">'+data[i].descripcion+'</option>';
+				
+				/*
 				html2 += '<option value="'+data[i].idTipoConflicto+'">'+data[i].descripcion+'</option>'
 				$("#tipoConflicto").append(html2);
-				$("#tipoConflicto").trigger('contentChanged');
+				$("#tipoConflicto").trigger('contentChanged');*/
 			}
-			/*$('.select-dropdown').append(html);
+			$('.select-dropdown').append(html);
 			$('#colores').append(html2);
 			$('#tipoConflicto').append(html2); //Juan //Imprimir listado de colores en Desmoldantes 
-			console.log(res);*/
+			console.log(res);
 			
         }
     });
