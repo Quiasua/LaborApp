@@ -52,7 +52,7 @@ $(document).ready(function(){ //Funcion al momento de recargar la página
 	 $.ajax({
         url: "http://52.13.153.72:8080/laborapp/api/legalapp/consultarTipoConflicto",
         type: 'GET',
-        beforeSend: function (request) {
+        beforeSend: function (request) {    
             request.setRequestHeader("Authorization", "Admin");
         },
         success: function (data) {
