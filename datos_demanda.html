@@ -84,7 +84,7 @@
         </li>
         <li class="white">
           <a href="login.html" class="waves-effect waves-blue">
-            <i class="material-icons">exit_to_app</i>Cerrar sesion</a>
+            <i class="material-icons">exit_to_app</i>Cerrar sesion
           </a>
         </li>
 
@@ -100,7 +100,6 @@
               <div class="col s2">
                 <a href="#" class="fa fa-lg fa-facebook-official white-text">
                 </a>
-                </i>
               </div>
               <div class="col s2">
                 <a href="#" class="fa fa-lg fa-twitter white-text">
@@ -129,97 +128,187 @@
       <form>
         <div class="col s12 animated fadeInRight " id="">
           <center>
-            <h4 class="blue-text">Datos Demandante</h4>
+            <h4 class="blue-text">Iniciar Demanda</h4>
             <center>
               <div class="card horizontal" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;position: relative;	top: 50px;">
                 <div class="row">
-                  <div class="input-field col s12">
+                  <div class="input-field col s12 l12">
                     <select class="tipo-identificacion">
-                        <option value="" disabled selected>Elige tu opción</option>
-                        <option value="1">Cédula</option>
-                        <option value="2">Nit</option>
+                      <option value="" disabled selected>Elige tu opción</option>
+                      <option value="1">Persona Natural</option>
+                      <option value="2">Persona Juridica</option>
                     </select>
-                    <label>Tipo de Identificacion</label>
+                    <label>Tipo de persona a demandar</label>
                   </div>
                   <div class="input-field col s12 " id="persona-natural" style="display:none;">
                     <div class="card-panel ">
-                            <div class="row row-persona-natural" >
-                                <div class="input-field col s12"><label class="active" style="text-align: left;">Persona Natural</label></div>
-                                    <div class="input-field col s12">
-                                      <input id="nombre-personal-natural" type="text" class="validate">
-                                      <label class="active" for="nombre-personal-natural" style="text-align: left;">Nombre*</label>
-                                      <!--<p id="campo1">campo requerido</p>-->
-									                  </div>
-									                  <div class="input-field col s12">
-                                      <input id="apellido-personal-natural" type="text" class="validate">
-                                      <label class="active" for="apellido-personal-natural" style="text-align: left;">Apellido*</label>
-                                      <!--<p id="campo1">campo requerido</p>-->
-                                    </div>
-                                    <div class="input-field col s12">
-                                      <input id="direccion-personal-natural" type="text" class="validate">
-                                      <label class="active" for="direccion-personal-natural" style="text-align: left;">Direccion*</label>
-                                      <!--<p id="campo1">campo requerido</p>-->
-                                    </div>
-                                    <div class="input-field col s12">
-                                      <input id="telefono-personal-natural" type="text" class="validate">
-                                      <label class="active" for="telefono-personal-natural" style="text-align: left;">Telefono*</label>
-                                      <!--<p id="campo1">campo requerido</p>-->
-                                    </div>
-                                    <div class="input-field col s12">
-                                      <input id="identificacion-personal-natural" type="text" class="validate">
-                                      <label class="active" for="identificacion-personal-natural" style="text-align: left;">N° Identificacion</label>
-                                      <!--<p id="campo1">campo requerido</p>-->
-                                    </div>
-								            </div>
-                    </div>     
+                      <div class="row row-persona-natural">
+                        <div class="input-field col s12">
+                          <label class="active" style="text-align: left;">Persona Natural</label>
+                        </div>
+                        <div class="input-field col s12 l6">
+                          <input id="nombre-persona-natural" type="text" class="validate">
+                          <label class="active" for="nombre-persona-natural" style="text-align: left;">Nombre*</label>
+                          <!--<p id="campo1">campo requerido</p>-->
+                        </div>
+                        <div class="input-field col s12 l6">
+                          <input id="apellido-persona-natural" type="text" class="validate">
+                          <label class="active" for="apellido-persona-natural" style="text-align: left;">Apellido*</label>
+                          <!--<p id="campo1">campo requerido</p>-->
+                        </div>
+                        <div class="input-field col s12 l6">
+                          <select class="tipoIdentificacion">
+                            <option value="" disabled selected>Elige tu opción</option>
+                            <option value="1">CC</option>
+                            <option value="2">CE</option>
+                          </select>
+                          <label>Tipo de identificacion</label>
+                        </div>
+                        <div class="input-field col s12 l6">
+                          <input id="identificacion-persona-natural" type="text" class="validate">
+                          <label class="active" for="identificacion-persona-natural" style="text-align: left;">N° Identificacion</label>
+                          <!--<p id="campo1">campo requerido</p>-->
+                        </div>
+                        <div class="input-field col s12 l6">
+                          <select class="depto">
+                            <option value="" disabled selected>Elige tu opción</option>
+                            <option value="1">Cundinamarca</option>
+                            <option value="2">Antioquia</option>
+                            <option value="3">Meta</option>
+                            <option value="4">Ibague</option>
+                          </select>
+                          <label>Departamento</label>
+                        </div>
+                        <div class="input-field col s12 l6">
+                          <select class="municipio">
+                            <option value="" disabled selected>Elige tu opción</option>
+                            <option value="1">Viota</option>
+                            <option value="2">Bello</option>
+                            <option value="3">Acacias</option>
+                            <option value="4">No se</option>
+                          </select>
+                          <label>Municipio</label>
+                        </div>
+                        <div class="input-field col s12 l6">
+                          <input id="direccion-persona-natural" type="text" class="validate">
+                          <label class="active" for="direccion-persona-natural" style="text-align: left;">Dirección residencia*</label>
+                          <!--<p id="campo1">campo requerido</p>-->
+                        </div>
+                        <div class="input-field col s12 l6">
+                          <input id="telefono-persona-natural" type="text" class="validate">
+                          <label class="active" for="telefono-persona-natural" style="text-align: left;">Telefono*</label>
+                          <!--<p id="campo1">campo requerido</p>-->
+                        </div>
+                        <div class="input-field col s12 l6">
+                          <input id="email-persona-natural" type="text" class="validate">
+                          <label class="active" for="email-persona-natural" style="text-align: left;">Email*</label>
+                          <!--<p id="campo1">campo requerido</p>-->
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                  <!--Persona Juridica-->
                   <div class="input-field col s12" id="persona-legal" style="display:none;">
                     <div class="card-panel">
                       <div class="row row-persona-legal">
-                        <div class="input-field col s12"><label class="active"  style="text-align: left;">Persona Legal</label></div>
+                        <div class="input-field col s12">
+                          <label class="active" style="text-align: left;margin-top:3px;">Empresa</label>
+                        </div>
+                        <div class="input-field col s12">
+                          <input id="empresa-persona-legal" type="text" class="validate">
+                          <label class="active" for="empresa-persona-legal" style="text-align: left;">Razon social*</label>
+                          <!--<p id="campo1">campo requerido</p>-->
+                        </div>
+                        <div class="input-field col s12">
+                          <input id="nit" type="text" class="validate">
+                          <label class="active" for="nit" style="text-align: left;">NIT (Número de Identificación Tributaria)*</label>
+                          <!--<p id="campo1">campo requerido</p>-->
+                        </div>
+                        <div class="input-field col s12">
+                          <input id="direccion-empresa-persona-legal" type="text" class="validate">
+                          <label class="active" for="direccion-empresa-persona-legal" style="text-align: left;">Direccion*</label>
+                          <!--<p id="campo1">campo requerido</p>-->
+                        </div>
+                        <div class="input-field col s12 l6">
+                          <select class="depto">
+                            <option value="" disabled selected>Elige tu opción</option>
+                            <option value="1">Cundinamarca</option>
+                            <option value="2">Antioquia</option>
+                            <option value="3">Meta</option>
+                            <option value="4">Ibague</option>
+                          </select>
+                          <label>Departamento</label>
+                        </div>
+                        <div class="input-field col s12 l6">
+                          <select class="municipio">
+                            <option value="" disabled selected>Elige tu opción</option>
+                            <option value="1">Viota</option>
+                            <option value="2">Bello</option>
+                            <option value="3">Acacias</option>
+                            <option value="4">No se</option>
+                          </select>
+                          <label>Municipio</label>
+                        </div>
+                        <div class="input-field col s12 l6">
+                          <input id="telefono-persona-natural" type="text" class="validate">
+                          <label class="active" for="telefono-persona-natural" style="text-align: left;">Telefono*</label>
+                          <!--<p id="campo1">campo requerido</p>-->
+                        </div>
+                        <div class="input-field col s12 l6">
+                          <input id="email-persona-natural" type="text" class="validate">
+                          <label class="active" for="email-persona-natural" style="text-align: left;">Email*</label>
+                          <!--<p id="campo1">campo requerido</p>-->
+                        </div>
+                        <div class="input-field col s12">
+                          <label class="active" style="text-align: left;">Representante legal</label>
+                        </div>
+                        <div class="input-field col s12">
+                          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="representante">
+                            <input type="checkbox" id="representante" class="mdl-checkbox__input">
+                            <p>Sabe usted los datos del representante legal</p>
+                          </label>
+                        </div>
+                        <div id="dvOcultar" class="input-field col s12" style="margin-top: 45px;display: none;">
                           <div class="input-field col s12">
-                            <input id="nombre-personal-legal" type="text" class="validate">
-                            <label class="active" for="nombre-personal-legal" style="text-align: left;">Nombre*</label>
+                            <input id="nombre-persona-legal" type="text" class="validate">
+                            <label class="active" for="nombre-persona-legal" style="text-align: left;">Nombre*</label>
                             <!--<p id="campo1">campo requerido</p>-->
                           </div>
                           <div class="input-field col s12">
-                            <input id="apellido-personal-legal" type="text" class="validate">
-                            <label class="active" for="apellido-personal-legal" style="text-align: left;">Apellido*</label>
+                            <input id="apellido-persona-legal" type="text" class="validate">
+                            <label class="active" for="apellido-persona-legal" style="text-align: left;">Apellido*</label>
+                            <!--<p id="campo1">campo requerido</p>-->
+                          </div>
+                          <div class="input-field col s12 l6">
+                            <select class="tipoIdentificacionRL">
+                              <option value="" disabled selected>Elige tu opción</option>
+                              <option value="1">CC</option>
+                              <option value="2">CE</option>
+                            </select>
+                            <label>Tipo de identificacion</label>
+                          </div>
+                          <div class="input-field col s12 l6">
+                            <input id="identificacion-representante" type="text" class="validate">
+                            <label class="active" for="identificacion-representante" style="text-align: left;">N° Identificacion</label>
                             <!--<p id="campo1">campo requerido</p>-->
                           </div>
                           <div class="input-field col s12">
-                            <input id="direccion-personal-legal" type="text" class="validate">
-                            <label class="active" for="direccion-personal-legal" style="text-align: left;">Direccion*</label>
+                            <input id="direccion-persona-legal" type="text" class="validate">
+                            <label class="active" for="direccion-persona-legal" style="text-align: left;">Dirección residencia*</label>
                             <!--<p id="campo1">campo requerido</p>-->
                           </div>
-                          <div class="input-field col s12">
-                            <input id="telefono-personal-legal" type="text" class="validate">
-                            <label class="active" for="telefono-personal-legal" style="text-align: left;">Telefono*</label>
-                            <!--<p id="campo1">campo requerido</p>-->
-                          </div>
-                          <div class="input-field col s12"><label class="active" style="text-align: left;margin-top:3px;">Empresa</label></div>
-                          <div class="input-field col s12">
-                            <input id="empresa-personal-legal" type="text" class="validate">
-                            <label class="active" for="empresa-personal-legal" style="text-align: left;">Nombre Empresa*</label>
-                            <!--<p id="campo1">campo requerido</p>-->
-                          </div>
-                          <div class="input-field col s12">
-                            <input id="direccion-empresa-personal-legal" type="text" class="validate">
-                            <label class="active" for="direccion-empresa-personal-legal" style="text-align: left;">Direccion*</label>
-                            <!--<p id="campo1">campo requerido</p>-->
-                          </div>
+                        </div>
                       </div>
-                    </div>     
+                    </div>
                   </div>
                 </div>
-              </div>
             </center>
             <button id="siguiente3" type='button' class='btn waves-effect blue' style="top: 50px;">Siguiente</button>
           </center>
-        </div>
+          </div>
       </form>
+      </div>
     </div>
-  </div>
 </body>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
