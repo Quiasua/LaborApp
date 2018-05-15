@@ -61,7 +61,7 @@ $(document).ready(function(){ //Funcion al momento de recargar la página
 			for (var i = -0; i < len; i++) { //for para traer la lista de colores
 				html += '<option  value="'+data[i].idTipoConflicto+'">'+data[i].descripcion	+' </option>';
 			}
-			$('#tipoConflicto').append(html); //Juan //Imprimir listado de colores en Desmoldantes
+			$('#tipoConflicto').append(html); 
 			$('select').material_select();
 			
         }
@@ -80,7 +80,7 @@ $(document).ready(function(){ //Funcion al momento de recargar la página
 			for (var i = -0; i < len; i++) { //for para traer la lista de colores
 				html2 += '<option  value="'+data[i].idTipContrato+'">'+data[i].descipcion+' </option>';
 			}
-			$('#tipoContrato').append(html2); //Juan //Imprimir listado de colores en Desmoldantes
+			$('#tipoContrato').append(html2); 
 			$('select').material_select();
         }
 	});
@@ -98,7 +98,7 @@ $(document).ready(function(){ //Funcion al momento de recargar la página
 			for (var i = -0; i < len; i++) { //for para traer la lista de colores
 				html3 += '<option  value="'+data[i].idSalarioMinimo+'">Año: '+data[i].añoSalario+" Salario: "+data[i].salario+' </option>';
 			}
-			$('#salario').append(html3); //Juan //Imprimir listado de colores en Desmoldantes
+			$('#salario').append(html3); 
 			$('select').material_select();
         }
     });

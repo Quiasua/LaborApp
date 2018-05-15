@@ -62,7 +62,7 @@ $(document).ready(function () {
         var num = Number($("#telefono").val());
         var enviar = {
             filtroId: id,
-            filtroUno: $("#textarea1").val(),
+            filtroUno: $("#textarea1").val(), 
             filtroDosId: num
         }
 
@@ -132,6 +132,7 @@ $(document).ready(function () {
 
 
     $('.button-collapse').sideNav('hide');
+    
 
 
 });
