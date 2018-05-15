@@ -41,76 +41,76 @@ $(document).ready(function(){ //Funcion al momento de recargar la página
 	}
 	}
 
-		// initialize
-	$('.materialSelect').material_select();
+	 //ejecuto la función al soltar la tecla
+	 pass2.keyup(function(){
+        coincidePassword();
+		
+	  });
 
-	// setup listener for custom event to re-initialize on change
-	$('.materialSelect').on('contentChanged', function() {
-		$(this).material_select();
-	});
-
+	
+	
 	 $.ajax({
-        url: "http://52.13.153.72:8080/laborapp/api/legalapp/consultarTipoConflicto",
+        url: "http://52.67.195.28:8080/laborapp/api/legalapp/consultarTipoConflicto",
+		type: 'GET',
+		beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "Admin");
+        },
+        success: function (data) {
+			var html = ''; //Varaible para imprimir
+			var len = data.length; //Varible para contador
+			for (var i = -0; i < len; i++) { //for para traer la lista de colores
+				html += '<option  value="'+data[i].idTipoConflicto+'">'+data[i].descripcion	+' </option>';
+			}
+			$('#tipoConflicto').append(html); //Juan //Imprimir listado de colores en Desmoldantes
+			$('select').material_select();
+			
+        }
+    });
+
+    // tipo de conflicto
+    $.ajax({
+        url: "http://52.67.195.28:8080/laborapp/api/legalapp/consultarTipoContrato",
         type: 'GET',
         beforeSend: function (request) {
             request.setRequestHeader("Authorization", "Admin");
         },
         success: function (data) {
-			console.log(data);
-			var html = ''; //Varaible para imprimir
-			var html2 = ''; //Variable para imprimir
+            var html2 = ''; //Varaible para imprimir
 			var len = data.length; //Varible para contador
 			for (var i = -0; i < len; i++) { //for para traer la lista de colores
-				html += '<li class><span>'+data[i].descripcion+'</span></li>';
-				html2 += '<option value="'+data[i].idTipoConflicto+'">'+data[i].descripcion+'</option>';
-				
-				/*
-				html2 += '<option value="'+data[i].idTipoConflicto+'">'+data[i].descripcion+'</option>'
-				$("#tipoConflicto").append(html2);
-				$("#tipoConflicto").trigger('contentChanged');*/
+				html2 += '<option  value="'+data[i].idTipContrato+'">'+data[i].descipcion+' </option>';
 			}
-			$('.select-dropdown').append(html);
-			$('#colores').append(html2);
-			$('#tipoConflicto').append(html2); //Juan //Imprimir listado de colores en Desmoldantes 
-			console.log(res);
-			
+			$('#tipoContrato').append(html2); //Juan //Imprimir listado de colores en Desmoldantes
+			$('select').material_select();
         }
-    });
-
-
-    // tipo de conflicto
+	});
+	
+    // tipo de salario
     $.ajax({
-        url: "http://52.13.153.72:8080/laborapp/api/legalapp/consultarSalarios",
+        url: "http://52.67.195.28:8080/laborapp/api/legalapp/consultarSalarios",
         type: 'GET',
         beforeSend: function (request) {
             request.setRequestHeader("Authorization", "Admin");
         },
-        success: function (res) {
-            console.log(res);
+        success: function (data) {
+            var html3 = ''; //Varaible para imprimir
+			var len = data.length; //Varible para contador
+			for (var i = -0; i < len; i++) { //for para traer la lista de colores
+				html3 += '<option  value="'+data[i].idSalarioMinimo+'">Año: '+data[i].añoSalario+" Salario: "+data[i].salario+' </option>';
+			}
+			$('#salario').append(html3); //Juan //Imprimir listado de colores en Desmoldantes
+			$('select').material_select();
         }
     });
 
-    // tipo de conflicto
-    $.ajax({
-        url: "http://52.13.153.72:8080/laborapp/api/legalapp/consultarTipoContrato",
-        type: 'GET',
-        beforeSend: function (request) {
-            request.setRequestHeader("Authorization", "Admin");
-        },
-        success: function (res) {
-            console.log(res);
-        }
-    });
-
+    
+/*
     $('#tipConflico').append(new Option('Foo', 'foo', true, true));
 
 
-        //ejecuto la función al soltar la tecla
-        pass2.keyup(function(){
-        coincidePassword();
-        });
-    
-	$('select.tipo-identificacion').on('change',function(){//Funcion para seleccionar la dosificacion del option que 
+       
+    */
+	$('select.tipo-identificacion').on('change',function(){//Tomar el valor del option y asimismo decidir 
 		var valorIdentificacionFrom=$(this).val();
 			if(valorIdentificacionFrom == 1){
 				$("#persona-natural").css("display","block");
