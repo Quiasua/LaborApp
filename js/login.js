@@ -33,7 +33,7 @@ $(document).ready(function () {
                 filtroUno: $("#user").val(),
                 filtroDos: $("#password").val()
             }
-            var server = "52.13.153.72";
+            var server = "localhost";
             var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/consultarUsuario";
             $.ajax({
                 url: url_persona,
@@ -47,7 +47,11 @@ $(document).ready(function () {
                 success: function (data) {
                     console.log(data);
                     if (data.usuario != null) {
-                        window.location.href = "main.html?user=" + data.idUsuario;
+                        if (data.indicador != null) {
+                            window.location.href = "main.html?user=" + data.idUsuario;
+                        } else {
+                            window.location.href = "tutorial.html?user=" + data.idUsuario;
+                        }
                     } else {
                         Materialize.toast('Usuario y/o contraseña incorrectos', 4000)
                     }
