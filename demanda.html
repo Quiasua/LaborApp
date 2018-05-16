@@ -18,16 +18,15 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <script src="js/jquery.min.js"></script>
   <script src="js/materialize.min.js"></script>
+  <script src="js/index.js"></script>
   <script src="js/jquery.js"></script>
+  <script src="js/creacion_cuenta.js"></script>
+  <script src="js/funciones-materialize.js"></script>
   <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
   <script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
-  <script src="js/funciones-materialize.js"></script>
-  <script src="js/creacion_cuenta.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
   <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <script src="js/index.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.min.css" rel="stylesheet">
   <link rel="shortcut icon" href="img/logo.ico" />
@@ -85,7 +84,6 @@
         <li class="white">
           <a href="login.html" class="waves-effect waves-blue">
             <i class="material-icons">exit_to_app</i>Cerrar sesion</a>
-          </a>
         </li>
 
         <!-- social icons-->
@@ -100,7 +98,6 @@
               <div class="col s2">
                 <a href="#" class="fa fa-lg fa-facebook-official white-text">
                 </a>
-                </i>
               </div>
               <div class="col s2">
                 <a href="#" class="fa fa-lg fa-twitter white-text">
@@ -133,53 +130,65 @@
             <center>
               <div class="card horizontal" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;position: relative;	top: 50px;">
                 <div class="row">
-                  <div class="input-field col s12">
+                  <!--div class="input-field col s12">
                     <select id="tipoConflicto" >
-                      <option value="" disabled selected>Choose your option</option>
+                      <option value="" disabled selected>Elige tu opción</option>
                     </select>
                     <label>Tipo de conflicto</label>
-                  </div>
-                  <div class="input-field col s12">
+                  </div-->
+                  <div class="input-field col s12 l6">
                     <select>
-                      <option value="" disabled selected>Choose your option</option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="3">Option 3</option>
+                      <option value="" disabled selected>Elija una opción</option>
                     </select>
                     <label>Tipo de Contrato</label>
                   </div>
-                  <div class="input-field col s12 ">
+                  <div class="input-field col s12 l6">
                     <select id="salario">
-                      <option value="" disabled selected>Choose your option</option>
+                      <option value="" disabled selected>Elija una opción</option>
                       <option value="1">Option 1</option>
                       <option value="2">Option 2</option>
                       <option value="3">Option 3</option>
                     </select>
                     <label>Salario</label>
                   </div>
-                  <div class="inpunt-fiel col s12">
+                  <div class="inpunt-fiel col s12 l6">
                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox2">
                       <input type="checkbox" id="checkbox2" class="mdl-checkbox__input">
                       <p>Otro</p>
                     </label>
                   </div>
-                  <div class="input-field col s6">
+                  <div class="input-field col s12 l6">
                     <input id="otroSalario" type="text" class="validate" style="display:none;">
                     <label id="tituloOtroSalario" class="active" for="Otro Salario" style="text-align: left;display:none;">Valor</label>
                     <p id="campo">campo requerido</p>
                   </div>
+                  <div class="input-field col s12 l6">
+                    <form id="formulaireDate">
+                      <div class="row">
+                        <div class="col s8">
+                          <input type="text" class="datepicker">
+                          <!--input type="date" placeholder="DD/MM/AA" id="fecha" class="datepicker" data-rule-dateWithMoment="true"/-->
+                        </div>
+                        <div class="col s2">
+                          <a class="btn-floating btn-large waves-effect waves-light trigger-datepicker">
+                            <i class="material-icons">event</i>
+                          </a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
                 </div>
-              </div>
             </center>
             <button id="siguiente3" type='button' class='btn waves-effect blue' style="top: 50px;">Siguiente</button>
           </center>
-        </div>
+          </div>
       </form>
+      </div>
     </div>
-  </div>
 </body>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
-
+<script>
+</script>
 </html>
