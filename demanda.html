@@ -20,7 +20,6 @@
   <script src="js/materialize.min.js"></script>
   <script src="js/index.js"></script>
   <script src="js/jquery.js"></script>
-  <script src="js/creacion_cuenta.js"></script>
   <script src="js/funciones-materialize.js"></script>
   <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
   <script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
@@ -151,10 +150,10 @@
                     </select>
                     <label>Salario</label>
                   </div>
-                  <div class="inpunt-fiel col s12 l6">
+                  <div class="inpunt-fiel col s12 l6" style="margin-bottom: 10px;">
                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox2">
                       <input type="checkbox" id="checkbox2" class="mdl-checkbox__input">
-                      <p>Otro</p>
+                      <p>Otro valor </p>
                     </label>
                   </div>
                   <div class="input-field col s12 l6">
@@ -162,17 +161,16 @@
                     <label id="tituloOtroSalario" class="active" for="Otro Salario" style="text-align: left;display:none;">Valor</label>
                     <p id="campo">campo requerido</p>
                   </div>
-                  <div class="input-field col s12 l6">
+                  <div class="input-field col s12 l12">
                     <form id="formulaireDate">
                       <div class="row">
-                        <div class="col s8">
-                          <input type="text" class="datepicker">
-                          <!--input type="date" placeholder="DD/MM/AA" id="fecha" class="datepicker" data-rule-dateWithMoment="true"/-->
+                        <div class="input-field col s12 l6">
+                          <label>Fecha inicio contrato</label>
+                          <input type="date" placeholder="DD/MM/AA" id="fechaInicio" class="datepicker" data-rule-dateWithMoment="true">
                         </div>
-                        <div class="col s2">
-                          <a class="btn-floating btn-large waves-effect waves-light trigger-datepicker">
-                            <i class="material-icons">event</i>
-                          </a>
+                        <div class="input-field col s12 l6">
+                          <input type="date" placeholder="DD/MM/AA" id="fechaFinal" class="datepicker" data-rule-dateWithMoment="true">
+                          <label>Fecha fin contrato</label>
                         </div>
                       </div>
                     </form>
@@ -190,5 +188,23 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
 <script>
+  $(document).ready(function () {
+    $(".datepicker").pickadate({
+      closeOnSelect: true,
+      format: "dd/mm/yyyy",
+      close: 'Seleccionar',
+      today: false,
+      clear: false,
+    });
+
+    $('#siguiente3').click(function(){
+      var salario = $("#otroSalario").val();
+      var cuantia = 781242 * 20;
+      if(salario >= cuantia){
+        window.location.href = "abogado.html";
+      }
+    })
+  });
 </script>
+
 </html>

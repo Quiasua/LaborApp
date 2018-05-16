@@ -49,7 +49,7 @@ $(document).ready(function () { //Funcion al momento de recargar la página
 		$(this).material_select();
 	});
 
-	$.ajax({
+	/*$.ajax({
 		url: "http://192.168.0.19:8080/laborapp/api/legalapp/consultarTipoConflicto",
 		type: 'GET',
 		beforeSend: function (request) {
@@ -66,19 +66,19 @@ $(document).ready(function () { //Funcion al momento de recargar la página
 				/*
 				html2 += '<option value="'+data[i].idTipoConflicto+'">'+data[i].descripcion+'</option>'
 				$("#tipoConflicto").append(html2);
-				$("#tipoConflicto").trigger('contentChanged');*/
-			}
+				$("#tipoConflicto").trigger('contentChanged');
+}
 			$('.select-dropdown').append(html);
 			$('#colores').append(html2);
 			$('#tipoConflicto').append(html2); //Juan //Imprimir listado de colores en Desmoldantes 
 			console.log(res);
 
 		}
-	});
+	});*/
 
 
 	// tipo de conflicto
-	$.ajax({
+	/*$.ajax({
 		url: "http://52.13.153.72:8080/laborapp/api/legalapp/consultarSalarios",
 		type: 'GET',
 		beforeSend: function (request) {
@@ -99,7 +99,7 @@ $(document).ready(function () { //Funcion al momento de recargar la página
 		success: function (res) {
 			console.log(res);
 		}
-	});
+	});*/
 
 	$('#tipConflico').append(new Option('Foo', 'foo', true, true));
 
