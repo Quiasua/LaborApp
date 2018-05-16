@@ -55,17 +55,18 @@ $(document).ready(function () {
     $("#enviarcorreo").click(function () {
         var link = document.URL;
         var urls = new URL(link);
-        var server = "52.13.153.72";
+        var server = "52.67.195.28";
         var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/envioCorreo";
         var nombre = urls.searchParams.get("user");
         var id = Number(nombre);
         var num = Number($("#telefono").val());
         var enviar = {
-            filtroId: id,
-            filtroUno: $("#textarea1").val(), 
-            filtroDosId: num
+            idPersona:id,
+            correo:$("#correo").val(),
+            dirreccion:$("#textarea1").val(),
+            numeroTelefono:$("#telefono").val(),
+            ciudadDomicilio:$("#ciudad").val()	
         }
-
         if (nombre != "null") {
             $.ajax({
                 url: url_persona,
