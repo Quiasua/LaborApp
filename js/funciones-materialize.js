@@ -58,7 +58,6 @@ $(document).ready(function () { //Funcion al momento de recargar la página
 		success: function (data) {
 			console.log(data);
 			var html = ''; //Varaible para imprimir
-			var html2 = ''; //Variable para imprimir
 			var len = data.length; //Varible para contador
 			for (var i = -0; i < len; i++) { //for para traer la lista de colores
 				html += '<li class><span>' + data[i].descripcion + '</span></li>';
