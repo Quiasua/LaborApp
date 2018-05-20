@@ -136,8 +136,8 @@
                     <label>Tipo de conflicto</label>
                   </div>
                   <div class="input-field col s12 l6">
-                    <input id="otroSalario" type="text" class="validate" >
-                    <label id="tituloOtroSalario" class="active" for="Otro Salario" style="text-align: left">Valor</label>
+                    <input id="otroSalario" type="number" class="validate" >
+                    <label id="tituloOtroSalario" class="active" for="otroSalario" style="text-align: left">Ultimo salario devengado</label>
                     <!--<p id="campo">campo requerido</p>-->
                   </div>
                   <div class="input-field col s12 l12">
@@ -166,24 +166,6 @@
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
-<script>
-  $(document).ready(function () {
-    $(".datepicker").pickadate({
-      closeOnSelect: true,
-      format: "dd/mm/yyyy",
-      close: 'Seleccionar',
-      today: false,
-      clear: false,
-    });
 
-    $('#siguiente3').click(function(){
-      var salario = $("#otroSalario").val();
-      var cuantia = 781242 * 20;
-      if(salario >= cuantia){
-        window.location.href = "abogado.html";
-      }
-    })
-  });
-</script>
 
 </html>
