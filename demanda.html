@@ -125,41 +125,20 @@
       <form>
         <div class="col s12 animated fadeInRight " id="">
           <center>
-            <h4 class="blue-text">Datos Personales</h4>
+            <h4 class="blue-text">Información del Contrato Laboral</h4>
             <center>
               <div class="card horizontal" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;position: relative;	top: 50px;">
                 <div class="row">
-                  <!--div class="input-field col s12">
+                  <div class="input-field col s12 l6">
                     <select id="tipoConflicto" >
                       <option value="" disabled selected>Elige tu opción</option>
                     </select>
                     <label>Tipo de conflicto</label>
-                  </div-->
-                  <div class="input-field col s12 l6">
-                    <select>
-                      <option value="" disabled selected>Elija una opción</option>
-                    </select>
-                    <label>Tipo de Contrato</label>
                   </div>
                   <div class="input-field col s12 l6">
-                    <select id="salario">
-                      <option value="" disabled selected>Elija una opción</option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="3">Option 3</option>
-                    </select>
-                    <label>Salario</label>
-                  </div>
-                  <div class="inpunt-fiel col s12 l6" style="margin-bottom: 10px;">
-                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox2">
-                      <input type="checkbox" id="checkbox2" class="mdl-checkbox__input">
-                      <p>Otro valor </p>
-                    </label>
-                  </div>
-                  <div class="input-field col s12 l6">
-                    <input id="otroSalario" type="text" class="validate" style="display:none;">
-                    <label id="tituloOtroSalario" class="active" for="Otro Salario" style="text-align: left;display:none;">Valor</label>
-                    <p id="campo">campo requerido</p>
+                    <input id="otroSalario" type="number" class="validate" >
+                    <label id="tituloOtroSalario" class="active" for="otroSalario" style="text-align: left">Ultimo salario devengado</label>
+                    <!--<p id="campo">campo requerido</p>-->
                   </div>
                   <div class="input-field col s12 l12">
                     <form id="formulaireDate">
@@ -187,24 +166,6 @@
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
-<script>
-  $(document).ready(function () {
-    $(".datepicker").pickadate({
-      closeOnSelect: true,
-      format: "dd/mm/yyyy",
-      close: 'Seleccionar',
-      today: false,
-      clear: false,
-    });
 
-    $('#siguiente3').click(function(){
-      var salario = $("#otroSalario").val();
-      var cuantia = 781242 * 20;
-      if(salario >= cuantia){
-        window.location.href = "abogado.html";
-      }
-    })
-  });
-</script>
 
 </html>
