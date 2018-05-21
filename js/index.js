@@ -55,7 +55,7 @@ $(document).ready(function () {
     $("#enviarcorreo").click(function () {
         var link = document.URL;
         var urls = new URL(link);
-        var server = "52.67.195.28";
+        var server = "localhost";
         var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/envioCorreo";
         var nombre = urls.searchParams.get("user");
         var id = Number(nombre);
@@ -104,7 +104,7 @@ $(document).ready(function () {
     var link = document.URL;
     var urls = new URL(link);
     var usuario = urls.searchParams.get("user");
-    var server = "52.13.153.72";
+    var server = "localhost";
     var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/consultarPersona";
     var filtroPersona = {
         filtroId: 0
