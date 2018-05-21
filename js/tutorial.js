@@ -7,7 +7,6 @@ $(document).ready(function () {
         var urls = new URL(link);
         var id = urls.searchParams.get("user");
         window.location.href = "main.html?user=" + id;
-        /*
         var server = "localhost";
         var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/actualizarTutorial";
         $.ajax({
@@ -23,7 +22,6 @@ $(document).ready(function () {
                 console.log(data);
             }
         })
-        */
     })
     $('#modal1').show();
     $('.modal').modal();
