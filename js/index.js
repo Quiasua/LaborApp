@@ -51,46 +51,70 @@ var app = {
 };
 
 
-$(document).ready(function () {  
+$(document).ready(function () {
     $("#enviarcorreo").click(function () {
         var link = document.URL;
         var urls = new URL(link);
         var server = "localhost";
         var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/envioCorreo";
+        var url_consulta = "http://" + server + ":8080/laborapp/api/legalapp/consultarUsuarioId";
         var nombre = urls.searchParams.get("user");
         var id = Number(nombre);
         var num = Number($("#telefono").val());
         var enviar = {
-            idPersona:id,
-            correo:$("#correo").val(),
-            dirreccion:$("#textarea1").val(),
-            numeroTelefono:$("#telefono").val(),
-            ciudadDomicilio:$("#ciudad").val()	
+            idPersona: id,
+            correo: $("#correo").val(),
+            dirreccion: $("#textarea1").val(),
+            numeroTelefono: $("#telefono").val(),
+            ciudadDomicilio: $("#ciudad").val()
         }
-        if (nombre != "null") {
-            $.ajax({
-                url: url_persona,
-                type: 'POST',
-                dataType: 'json',
-                data: JSON.stringify(enviar),
-                contentType: 'application/json',
-                beforeSend: function (request) {
-                    request.setRequestHeader("Authorization", "Admin");
-                },
-                success: function (data) {
-                    console.log(data);
-                    $("#telefono").attr("");
-                    $("#textarea1").attr("");
-                    Materialize.toast('correo enviado', 3000)
-                    setTimeout(function () {
-                        window.location.href = "main.html";
-                    }, 4000);
+        var consulta = {
+            filtroId: id
+        }
+        var user = {};
+        $.ajax({
+            url: url_consulta,
+            type: 'POST',
+            dataType: 'json',
+            data: JSON.stringify(consulta),
+            contentType: 'application/json',
+            beforeSend: function (request) {
+                request.setRequestHeader("Authorization", "Admin");
+            },
+            success: function (data) {
+                user = data;
+                if (user.indicador == null) {
+                    $.ajax({
+                        url: url_persona,
+                        type: 'POST',
+                        dataType: 'json',
+                        data: JSON.stringify(enviar),
+                        contentType: 'application/json',
+                        beforeSend: function (request) {
+                            request.setRequestHeader("Authorization", "Admin");
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            $("#telefono").attr("");
+                            $("#textarea1").attr("");
+                            Materialize.toast('En un momento uno de nuestros acesores de Legalapp se contáctara con usted', 3000)
+                            setTimeout(function () {
+                                window.location.href = "main.html?user=" + id;
+                            }, 3000);
+                        }
+                    })
+                } else {
+                    Materialize.toast('Usted ya envio una peticion en un correo', 4000)
                 }
-            })
-        } else {
-            Materialize.toast('Usted ya envio una peticion en un correo', 4000)
-        }
+                console.log(data);
+            }
+        })
     });
+
+
+    function enviarCorreos(id) {
+
+    }
 
     $("#contactar").click(function () {
         var link = document.URL;
@@ -99,6 +123,7 @@ $(document).ready(function () {
         window.location.href = "abogado.html?user=" + id
 
     });
+
 
     // SIDEBAR
     var link = document.URL;
@@ -133,7 +158,7 @@ $(document).ready(function () {
 
 
     $('.button-collapse').sideNav('hide');
-    
+
 
 
 });

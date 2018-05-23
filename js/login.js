@@ -33,7 +33,7 @@ $(document).ready(function () {
                 filtroUno: $("#user").val(),
                 filtroDos: $("#password").val()
             }
-            var server = "52.67.195.28";
+            var server = "localhost";
             var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/consultarUsuario";
             $.ajax({
                 url: url_persona,

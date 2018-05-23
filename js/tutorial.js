@@ -1,12 +1,12 @@
 $(document).ready(function () {
-    $("#btn-enviar").click(function () {
-        var filtro = {
-            filtroId: $("#user").val()
-        }
+    $("#btn-enviar").click(function () {        
         var link = document.URL;
         var urls = new URL(link);
         var id = urls.searchParams.get("user");
-        window.location.href = "main.html?user=" + id;
+        var idSer = Number(id);
+        var filtro = {
+            idUsuario: idSer
+        }       
         var server = "localhost";
         var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/actualizarTutorial";
         $.ajax({
@@ -19,6 +19,7 @@ $(document).ready(function () {
                 request.setRequestHeader("Authorization", "Admin");
             },
             success: function (data) {
+                window.location.href = "main.html?user=" + id;
                 console.log(data);
             }
         })
