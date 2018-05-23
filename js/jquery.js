@@ -35,7 +35,7 @@ $(document).ready(function () {
     });
 
     $('#formulaireDate').validate();
-
+    $('.modal').modal();
     $('#siguiente3').click(function () {
         //Prescripcion    
         var f = new Date();
@@ -48,18 +48,19 @@ $(document).ready(function () {
         var mesfin = parseInt(arregloFecha[1]);
         var aniofin = parseInt(arregloFecha[2]) + 3;
 
-        if (aniofin >= anio) {
-            if (mesfin >= mes) {}
-            if (diafin >= dia) {
-                window.location.href = "correo.html";
+        if (aniofin <= anio) {
+            if (mesfin <= mes) {
+                if (diafin >= dia) {
+                    window.location.href = "correo.html";
+                } else {
+                    preparar();
+                }
             } else {
-                $('.modal').modal({
-                    onOpenStart: true
-                });
+                window.location.href = "correo.html";
             }
+        } else {
+            window.location.href = "correo.html";
         }
-
-
         var salario = $("#otroSalario").val();
         console.log(salario, "salario")
         var cuantia = 781242 * 20;
@@ -67,12 +68,14 @@ $(document).ready(function () {
         if (salario >= cuantia) {
             window.location.href = "abogado.html";
         }
-
-
-
-
-
     })
 
-
+    function preparar() {
+        $('#modal1').modal('open');
+        $('#modal1').modal('modal').options.dismissible = false;
+        $('#modal1').modal({
+            backdrop: 'static',
+            keyboard: false
+        })
+    }
 });
