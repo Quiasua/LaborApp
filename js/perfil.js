@@ -37,7 +37,7 @@ $(document).ready(function () {
         var server = "localhost";
         var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/actualizarTutorial";
         $.ajax({
-            url: url_persona,szXAZ
+            url: url_persona,
             type: 'POST',
             dataType: 'json',
             data: JSON.stringify(filtro),
