@@ -104,7 +104,7 @@ $(document).ready(function () {
                         }
                     })
                 } else {
-                    Materialize.toast('Usted ya envio una peticion en un correo', 4000)
+                    Materialize.toast('Usted ya tiene una solicitud, en un mometo nos comunicaremos con usted', 4000)
                 }
                 console.log(data);
             }
@@ -164,13 +164,13 @@ $(document).ready(function () {
                 $("#nombrel5").addClass("active");
             }
             if (data.idPersona.dirreccion != null) {
-                $("#direccion").val(data.idPersona.dirreccion);                
+                $("#direccion").val(data.idPersona.dirreccion);
                 $("#nombrel4").addClass("active");
             }
             if (data.idPersona.numeroIdentificacion != null) {
                 $("#Numid").val(data.idPersona.numeroIdentificacion);
                 $("#Tipoid").val("CC");
-                $("#nombrel6").addClass("active");               
+                $("#nombrel6").addClass("active");
             }
         }
     })
@@ -187,6 +187,38 @@ $(document).ready(function () {
 
     $('.button-collapse').sideNav('hide');
 
+    $("#actualizar").click(function () {
+        var link = document.URL;
+        var urls = new URL(link);
+        var usuario = urls.searchParams.get("user");
+        var id = Number(usuario);
+        var persona = {
+            idPersona: id,
+            nombre: $("#Nombre").val(),
+            apellido: $("#Apellido").val(),
+            numeroTelefono: $("#Telefono").val(),
+            dirreccion: $("#direccion").val(),
+            numeroIdentificacion: $("#Numid").val()
+        }
+        var urlEnviar = "http://localhost:8080/laborapp/api/legalapp/actualizarPersona"
+        $.ajax({
+            url: urlEnviar,
+            type: 'POST',
+            dataType: 'json',
+            data: JSON.stringify(persona),
+            contentType: 'application/json',
+            beforeSend: function (request) {
+                request.setRequestHeader("Authorization", "Admin");
+            },
+            success: function (data) {
+                console.log(data);
+                Materialize.toast('Los datos fueron actualizados de forma exitosa', 3000)
+                setTimeout(function () {
+                    window.location.href = "main.html?user=" + id;
+                }, 3000);
+            }
+        })
+    });
 
 
 });

@@ -19,7 +19,10 @@ $(document).ready(function () {
                 request.setRequestHeader("Authorization", "Admin");
             },
             success: function (data) {
-                window.location.href = "main.html?user=" + id;
+                Materialize.toast('Complete tu registro para continuar', 4000)
+                setTimeout(function () {
+                    window.location.href = "perfil.html?user=" + id;
+                }, 3000);
                 console.log(data);
             }
         })
