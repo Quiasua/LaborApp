@@ -145,6 +145,34 @@ $(document).ready(function () {
         beforeSend: function (request) {
             request.setRequestHeader("Authorization", "Admin");
         },
+        success: function (data) {
+            console.log(data);
+            if (data.idPersona.nombre != null) {
+                $("#Nombre").val(data.idPersona.nombre);
+                $("#nombrel").addClass("active");
+            }
+            if (data.idPersona.apellido != null) {
+                $("#Apellido").val(data.idPersona.apellido);
+                $("#nombrel1").addClass("active");
+            }
+            if (data.idPersona.numeroTelefono != null) {
+                $("#Telefono").val(data.idPersona.numeroTelefono);
+                $("#nombrel3").addClass("active");
+            }
+            if (data.usuario != null) {
+                $("#Correo").val(data.usuario);
+                $("#nombrel5").addClass("active");
+            }
+            if (data.idPersona.dirreccion != null) {
+                $("#direccion").val(data.idPersona.dirreccion);                
+                $("#nombrel4").addClass("active");
+            }
+            if (data.idPersona.numeroIdentificacion != null) {
+                $("#Numid").val(data.idPersona.numeroIdentificacion);
+                $("#Tipoid").val("CC");
+                $("#nombrel6").addClass("active");               
+            }
+        }
     })
 
     $('.button-collapse').sideNav({
