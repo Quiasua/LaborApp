@@ -49,7 +49,7 @@ $(document).ready(function () {
         var aniofin = parseInt(arregloFecha[2]) + 3;
 
         if (aniofin <= anio) {
-            if (mesfin <= mes) {
+            if (mesfin >= mes) {
                 if (diafin >= dia) {
                     window.location.href = "correo.html";
                 } else {
