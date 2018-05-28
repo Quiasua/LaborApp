@@ -89,7 +89,7 @@ $(document).ready(function () {
 
     });
 
-    var server = "localhost";
+    var server = "52.67.195.28";
     $("#siguiente3").click(function () {
         var validarCorreo = $("#correo").val();       
         var espacioCorreo =  validarCorreo.split("@");
