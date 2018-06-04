@@ -42,7 +42,7 @@ $(document).ready(function () { //Funcion al momento de recargar la página
 	}
 
 	$.ajax({
-        url: "http://52.67.195.28:8080/laborapp/api/legalapp/consultarTipoConflicto",
+        url: "http://localhost:8080/laborapp/api/legalapp/consultarTipoConflicto",
 		type: 'GET',
 		beforeSend: function (request) {
             request.setRequestHeader("Authorization", "Admin");

@@ -7,7 +7,7 @@ $(document).ready(function () {
     var filtro = {
         filtroId: idSer
     }
-    var server = "52.67.195.28";
+    var server = "localhost";
     var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/consultarUsuarioId";
     $.ajax({
         url: url_persona,
@@ -34,7 +34,7 @@ $(document).ready(function () {
         var filtro = {
             idUsuario: idSer
         }
-        var server = "52.67.195.28";
+        var server = "localhost";
         var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/actualizarTutorial";
         $.ajax({
             url: url_persona,

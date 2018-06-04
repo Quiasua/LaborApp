@@ -105,28 +105,15 @@
             <h4 class="blue-text">¿Necesitas un abogado?</h4>
             <center>
               <div class="card horizontal" style="display: inline-block; padding: 12px 48px 10px 48px; border: 1px solid #EEE;position: relative;	top: 25px;">
-                <div class="input-field col s12 l6">
-                  <input id="telefono" type="text" class="validate" onkeypress="return valida(event)" maxlength="10">
-                  <label class="active" for="Telefono" style="text-align: left;">Ingrese telefono contacto</label>
-                </div>
-                <div class="input-field col s12 l6">
-                  <input id="correo" type="text" class="validate"  maxlength="40">
-                  <label class="active" for="correo" style="text-align: left;">Ingrese correo electrónico</label>
-                </div>
-                <div class="input-field col s12 l6">
-                  <input id="ciudad" type="text" class="validate"  maxlength="40">
-                  <label class="active" for="ciudad" style="text-align: left;">Ingrese ciudad</label>
-                </div>
-                <div class="input-field col s12 l6">
+                <div class="input-field col s12 l2">
                 </div>
                 <div class="input-field col s12 l12">
                   <textarea maxlength="150" id="textarea1" class="materialize-textarea"></textarea>
                   <label for="textarea1">Ingrese una breve descricpción</label>
                 </div>
-
               </div>
             </center>
-            <button id="enviarcorreo" type='button' class='btn waves-effect blue' style="top: 50px;">Enviar</button>
+            <a id="enviarcorreo" class='btn waves-effect blue' style="top: 50px;">Enviar</a>
           </center>
         </div>
       </div>
@@ -138,18 +125,19 @@
   <script src="js/menu.js"></script>
 </body>
 <script>
-    function valida(e){
-        tecla = (document.all) ? e.keyCode : e.which;
-    
-        //Tecla de retroceso para borrar, siempre la permite
-        if (tecla==8){
-            return true;
-        }
-            
-        // Patron de entrada, en este caso solo acepta numeros
-        patron =/[0-9]/;
-        tecla_final = String.fromCharCode(tecla);
-        return patron.test(tecla_final);
+  function valida(e) {
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla == 8) {
+      return true;
     }
+
+    // Patron de entrada, en este caso solo acepta numeros
+    patron = /[0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+  }
 </script>
+
 </html>
