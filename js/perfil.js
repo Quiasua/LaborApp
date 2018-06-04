@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     var link = document.URL;
     var urls = new URL(link);
-    var id = urls.searchParams.get("user");
+    var id = localStorage.lastname;;
     var idSer = Number(id);
     var filtro = {
         filtroId: idSer
@@ -19,7 +19,7 @@ $(document).ready(function () {
             request.setRequestHeader("Authorization", "Admin");
         },
         success: function (data) {
-            window.location.href = "main.html?user=" + id;
+            window.location.href = "main.html";
             console.log(data);
         }
     })
@@ -29,7 +29,7 @@ $(document).ready(function () {
     $("#btn-enviar").click(function () {
         var link = document.URL;
         var urls = new URL(link);
-        var id = urls.searchParams.get("user");
+        var id = localStorage.lastname;;
         var idSer = Number(id);
         var filtro = {
             idUsuario: idSer
@@ -46,7 +46,7 @@ $(document).ready(function () {
                 request.setRequestHeader("Authorization", "Admin");
             },
             success: function (data) {
-                window.location.href = "main.html?user=" + id;
+                window.location.href = "main.html";
                 console.log(data);
             }
         })

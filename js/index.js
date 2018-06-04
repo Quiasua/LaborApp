@@ -52,13 +52,16 @@ var app = {
 
 
 $(document).ready(function () {
+    localStorage.lastname;
+    //localStorage.clear();
+    localStorage.lastname;
     $("#enviarcorreo").click(function () {
         var link = document.URL;
         var urls = new URL(link);
         var server = "localhost";
         var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/envioCorreo";
         var url_consulta = "http://" + server + ":8080/laborapp/api/legalapp/consultarUsuarioId";
-        var nombre = urls.searchParams.get("user");
+        var nombre = localStorage.lastname;;
         var id = Number(nombre);
         var num = Number($("#telefono").val());
         var enviar = {
@@ -84,7 +87,7 @@ $(document).ready(function () {
             success: function (data) {
                 user = data;
                 console.log(data);
-                if (user != null) {
+                if (user.correo == null) {
                     $.ajax({
                         url: url_persona,
                         type: 'POST',
@@ -100,12 +103,12 @@ $(document).ready(function () {
                             $("#textarea1").attr("");
                             Materialize.toast('En un momento uno de nuestros acesores de Legalapp se contáctara con usted', 3000)
                             setTimeout(function () {
-                                window.location.href = "main.html?user=" + id;
+                                window.location.href = "main.html";
                             }, 3000);
                         }
                     })
                 } else {
-                    Materialize.toast('Usted ya tiene una solicitud, en un mometo nos comunicaremos con usted', 4000)
+                    Materialize.toast('Usted ya tiene una solicitud, en un momento nos comunicaremos con usted', 4000)
                 }
                 console.log(data);
             }
@@ -120,8 +123,8 @@ $(document).ready(function () {
     $("#contactar").click(function () {
         var link = document.URL;
         var urls = new URL(link);
-        var id = urls.searchParams.get("user");
-        window.location.href = "abogado.html?user=" + id
+        var id = localStorage.lastname;;
+        window.location.href = "abogado.html"
 
     });
 
@@ -129,7 +132,7 @@ $(document).ready(function () {
     // SIDEBAR
     var link = document.URL;
     var urls = new URL(link);
-    var usuario = urls.searchParams.get("user");
+    var usuario = localStorage.lastname;;
     var server = "localhost";
     var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/consultarPersona";
     var filtroPersona = {
@@ -192,7 +195,7 @@ $(document).ready(function () {
     $("#actualizar").click(function () {
         var link = document.URL;
         var urls = new URL(link);
-        var usuario = urls.searchParams.get("user");
+        var usuario = localStorage.lastname;;
         var id = Number(usuario);
         var persona = {
             idPersona: id,
@@ -216,7 +219,7 @@ $(document).ready(function () {
                 console.log(data);
                 Materialize.toast('Los datos fueron actualizados de forma exitosa', 3000)
                 setTimeout(function () {
-                    window.location.href = "main.html?user=" + id;
+                    window.location.href = "main.html";
                 }, 3000);
             }
         })

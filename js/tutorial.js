@@ -2,7 +2,7 @@ $(document).ready(function () {
     $("#btn-enviar").click(function () {        
         var link = document.URL;
         var urls = new URL(link);
-        var id = urls.searchParams.get("user");
+        var id = localStorage.lastname;;
         var idSer = Number(id);
         var filtro = {
             idUsuario: idSer
@@ -21,7 +21,7 @@ $(document).ready(function () {
             success: function (data) {
                 Materialize.toast('Complete tu registro para continuar', 4000)
                 setTimeout(function () {
-                    window.location.href = "perfil.html?user=" + id;
+                    window.location.href = "perfil.html";
                 }, 3000);
                 console.log(data);
             }

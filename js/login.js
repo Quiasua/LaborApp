@@ -48,9 +48,11 @@ $(document).ready(function () {
                     console.log(data);
                     if (data.usuario != null) {
                         if (data.indicador != null) {
-                            window.location.href = "main.html?user=" + data.idUsuario;
+                            // Store
+                            localStorage.lastname = data.idUsuario;
+                            window.location.href = "main.html";
                         } else {
-                            window.location.href = "tutorial.html?user=" + data.idUsuario;
+                            window.location.href = "tutorial.html";
                         }
                     } else {
                         Materialize.toast('Usuario y/o contraseña incorrectos', 4000)
