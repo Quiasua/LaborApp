@@ -36,6 +36,9 @@ $(document).ready(function () {
 
     $('#formulaireDate').validate();
     $('.modal').modal();
+    $('#siguiente1').click(function () {
+        window.location.href = "demanda.html"; 
+    })
     $('#siguiente3').click(function () {
         //Prescripcion    
         var f = new Date();
