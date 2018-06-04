@@ -55,7 +55,7 @@ $(document).ready(function () {
     $("#enviarcorreo").click(function () {
         var link = document.URL;
         var urls = new URL(link);
-        var server = "52.67.195.28";
+        var server = "localhost";
         var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/envioCorreo";
         var url_consulta = "http://" + server + ":8080/laborapp/api/legalapp/consultarUsuarioId";
         var nombre = urls.searchParams.get("user");
@@ -83,7 +83,8 @@ $(document).ready(function () {
             },
             success: function (data) {
                 user = data;
-                if (user.indicador == null) {
+                console.log(data);
+                if (user != null) {
                     $.ajax({
                         url: url_persona,
                         type: 'POST',
@@ -129,7 +130,7 @@ $(document).ready(function () {
     var link = document.URL;
     var urls = new URL(link);
     var usuario = urls.searchParams.get("user");
-    var server = "52.67.195.28";
+    var server = "localhost";
     var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/consultarPersona";
     var filtroPersona = {
         filtroId: 0
@@ -201,7 +202,7 @@ $(document).ready(function () {
             dirreccion: $("#direccion").val(),
             numeroIdentificacion: $("#Numid").val()
         }
-        var urlEnviar = "http://52.67.195.28:8080/laborapp/api/legalapp/actualizarPersona"
+        var urlEnviar = "http://localhost:8080/laborapp/api/legalapp/actualizarPersona"
         $.ajax({
             url: urlEnviar,
             type: 'POST',
