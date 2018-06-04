@@ -21,13 +21,6 @@ $(document).ready(function () {
         window.location.href = "abogado.html?user=" + id;
     });
 
-    $("#ajustes").click(function () {
-        var link = document.URL;
-        var urls = new URL(link);
-        var id = urls.searchParams.get("user");
-        window.location.href = "config.html?user=" + id;
-    });
-
     $("#demanda").click(function () {
         var link = document.URL;
         var urls = new URL(link);
