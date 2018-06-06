@@ -25,7 +25,7 @@ $(document).ready(function () {
         var link = document.URL;
         var urls = new URL(link);
         var id = localStorage.lastname;;
-        window.location.href = "demanda.html";
+        window.location.href = "inicio_demanda.html";
     });
 
 });

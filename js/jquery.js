@@ -36,6 +36,9 @@ $(document).ready(function () {
 
     $('#formulaireDate').validate();
     $('.modal').modal();
+    $('#siguiente1').click(function () {
+        window.location.href = "demanda.html"; 
+    })
     $('#siguiente3').click(function () {
         //Prescripcion    
         var f = new Date();
@@ -48,27 +51,23 @@ $(document).ready(function () {
         var mesfin = parseInt(arregloFecha[1]);
         var aniofin = parseInt(arregloFecha[2]) + 3;
 
-        if (aniofin <= anio) {
-            if (mesfin >= mes) {
+        if (aniofin >= anio) {
+            if (mesfin <= mes || mesfin >= mes) {
                 if (diafin >= dia) {
-                    window.location.href = "correo.html";
+                    window.location.href = "tipo_conflicto.html";
                 } else {
                     preparar();
                 }
             } else {
-                window.location.href = "correo.html";
+                window.location.href = "tipo_conflicto.html";
             }
-        } else {
-            window.location.href = "correo.html";
         }
-        var salario = $("#otroSalario").val();
-        console.log(salario, "salario")
-        var cuantia = 781242 * 20;
-        console.log(cuantia, "cuenta")
-        if (salario >= cuantia) {
-            window.location.href = "abogado.html";
+        else {
+            preparar();
         }
-    })
+
+
+    }) //Fin funcion
 
     function preparar() {
         $('#modal1').modal('open');
