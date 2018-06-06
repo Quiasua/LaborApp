@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    localStorage.clear();
     window.onload = function () {
         if (typeof history.pushState === "function") {
             history.pushState("jibberish", null, null);
