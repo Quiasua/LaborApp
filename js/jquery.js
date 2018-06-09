@@ -42,18 +42,23 @@ $(document).ready(function () {
     $('#siguiente3').click(function () {
         //Prescripcion    
         var f = new Date();
-        var dia = f.getDate();
-        var mes = (f.getMonth() + 1);
-        var anio = f.getFullYear();
+        var diaActual = f.getDate();
+        var mesActual = (f.getMonth() + 1);
+        var anioActual = f.getFullYear();
         var fechafin = $("#fechaFinal").val();
         var arregloFecha = fechafin.split('/');
-        var diafin = parseInt(arregloFecha[0]);
-        var mesfin = parseInt(arregloFecha[1]);
-        var aniofin = parseInt(arregloFecha[2]) + 3;
+        var diaFin = parseInt(arregloFecha[0]);
+        var mesFin = parseInt(arregloFecha[1]);
+        var anioFin = parseInt(arregloFecha[2]) + 3;
+        var fechaInicio = $("#fechainicio").val();
+        var arregloFechainicio = fechaInicio.split('/');
+        var diaInicio = parseInt(arregloFechainicio[0]);
+        var mesInicio = parseInt(arregloFechainicio[1]);
+        var anioInicio = parseInt(arregloFechainicio[2]);
 
-        if (aniofin >= anio) {
-            if (mesfin <= mes || mesfin >= mes) {
-                if (diafin >= dia) {
+        if (anioFin >= anioActual) {
+            if (mesFin <= mesActual || mesFin >= mesActual) {
+                if (diaFin >= diaActual) {
                     window.location.href = "tipo_conflicto.html";
                 } else {
                     preparar();
