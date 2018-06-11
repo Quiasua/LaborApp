@@ -39,6 +39,9 @@ $(document).ready(function () {
     $('#siguiente1').click(function () {
         window.location.href = "demanda.html"; 
     })
+    $('#siguiente4').click(function () {
+        window.location.href = "tipo_conflicto.html"; 
+    })
     $('#siguiente3').click(function () {
         //Prescripcion    
         var f = new Date();
@@ -73,6 +76,8 @@ $(document).ready(function () {
 
 
     }) //Fin funcion
+
+    
 
     function preparar() {
         $('#modal1').modal('open');
