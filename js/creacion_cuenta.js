@@ -117,8 +117,8 @@ $(document).ready(function () {
                 var fecha = urls.searchParams.get("fecha");
                 cliente.nombre = nombre;
                 cliente.apellido = apellido;
-                var fechaEnviar = new Date(fecha);
-                cliente.fechaNacimiento = fechaEnviar.getFullYear() + "-" + (fechaEnviar.getMonth() + 1) + "-" + fechaEnviar.getDate();
+                var fechaEnviar = fecha.split("/");
+                cliente.fechaNacimiento = fechaEnviar[0]+""+fechaEnviar[1]+""+fechaEnviar[2];
                 $("#campo").addClass("ocultar");
                 $("#campo1").addClass("ocultar");
                 console.log(JSON.stringify(usuario));
