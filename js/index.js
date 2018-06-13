@@ -196,7 +196,11 @@ $(document).ready(function () {
 
 
     $('.button-collapse').sideNav('hide');
+    $('#siguiente5').click(function () {
+        window.location.href = "generar_demanda.html"; 
+    })
 
+   
     $("#actualizar").click(function () {
         var link = document.URL;
         var urls = new URL(link);
