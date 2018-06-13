@@ -46,10 +46,10 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     console.log(data);
+                    // Store
+                    localStorage.lastname = data.idUsuario;
                     if (data.usuario != null) {
                         if (data.indicador != null) {
-                            // Store
-                            localStorage.lastname = data.idUsuario;
                             window.location.href = "main.html";
                         } else {
                             window.location.href = "tutorial.html";
