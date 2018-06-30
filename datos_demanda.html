@@ -114,13 +114,18 @@
             <center>
               <div class="card horizontal" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;position: relative;	top: 50px;">
                 <div class="row">
-                  <div class="input-field col s12 l12">
+                  <div class="input-field col s10">
                     <select class="tipo-identificacion">
                       <option value="" disabled selected>Elige tu opción</option>
                       <option value="1">Persona Natural</option>
                       <option value="2">Persona Juridica</option>
                     </select>
-                    <label>Tipo de persona a demandar</label>
+                    <label>Tipo de persona a demandar
+                   </label>
+                  </div>
+                  <div class="input-field col s1">
+                    <a class = "tooltipped" data-position = "down" data-delay = "50"
+                    data-tooltip = "Elija la persona a demandar"><img src="img/icon2.png" width="20" height="20"></a>
                   </div>
                   <div class="input-field col s12 " id="persona-natural" style="display:none;">
                     <div class="card-panel ">
@@ -196,15 +201,23 @@
                         <div class="input-field col s12">
                           <label class="active" style="text-align: left;margin-top:3px;">Empresa</label>
                         </div>
-                        <div class="input-field col s12">
-                          <input id="empresa-persona-legal" type="text" class="validate">
+                        <div class="input-field col s10">
+                          <input id="empresa-persona-legal" type="text" class="validate">                  
                           <label class="active" for="empresa-persona-legal" style="text-align: left;">Razon social*</label>
+                         </div> 
+                          <div class="input-field col s1">
+                            <a class = "tooltipped" data-position = "down" data-delay = "50"
+                            data-tooltip = "Nombre de la empresa"><img src="img/icon2.png" width="20" height="20"></a>
+                          </div>
+                          <!--<p id="campo1">campo requerido</p>-->
+                        <div class="input-field col s10">
+                          <input id="nit" type="text" class="validate">
+                          <label class="active" for="nit" style="text-align: left;">NIT*</label>
                           <!--<p id="campo1">campo requerido</p>-->
                         </div>
-                        <div class="input-field col s12">
-                          <input id="nit" type="text" class="validate">
-                          <label class="active" for="nit" style="text-align: left;">NIT (Número de Identificación Tributaria)*</label>
-                          <!--<p id="campo1">campo requerido</p>-->
+                        <div class="input-field col s1">
+                          <a class = "tooltipped" data-position = "down" data-delay = "50"
+                          data-tooltip = "Número de Identificación Tributaria"><img src="img/icon2.png" width="20" height="20"></a>
                         </div>
                         <div class="input-field col s12">
                           <input id="direccion-empresa-persona-legal" type="text" class="validate">
