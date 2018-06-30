@@ -21,7 +21,7 @@
   <script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/funciones-materialize.js"></script>
-  <script src="js/index.js"></script>
+  <script src="js/registrarDemanda.js"></script>
 </head>
 
 <body>
@@ -115,7 +115,7 @@
               <div class="card horizontal" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;position: relative;	top: 50px;">
                 <div class="row">
                   <div class="input-field col s12 l12">
-                    <select class="tipo-identificacion">
+                    <select class="tipo-identificacion" id="tipoper">
                       <option value="" disabled selected>Elige tu opción</option>
                       <option value="1">Persona Natural</option>
                       <option value="2">Persona Juridica</option>
@@ -129,17 +129,17 @@
                           <label class="active" style="text-align: left;">Persona Natural</label>
                         </div>
                         <div class="input-field col s12 l6">
-                          <input id="nombre-persona-natural" type="text" class="validate">
+                          <input id="nombreN" type="text" class="validate">
                           <label class="active" for="nombre-persona-natural" style="text-align: left;">Nombre*</label>
                           <!--<p id="campo1">campo requerido</p>-->
                         </div>
                         <div class="input-field col s12 l6">
-                          <input id="apellido-persona-natural" type="text" class="validate">
+                          <input id="apellidoN" type="text" class="validate">
                           <label class="active" for="apellido-persona-natural" style="text-align: left;">Apellido*</label>
                           <!--<p id="campo1">campo requerido</p>-->
                         </div>
                         <div class="input-field col s12 l6">
-                          <select class="tipoIdentificacion">
+                          <select class="tipoIdentificacion" id="tip-idenN">
                             <option value="" disabled selected>Elige tu opción</option>
                             <option value="1">CC</option>
                             <option value="2">CE</option>
@@ -147,12 +147,12 @@
                           <label>Tipo de identificacion</label>
                         </div>
                         <div class="input-field col s12 l6">
-                          <input id="identificacion-persona-natural" type="text" class="validate">
+                          <input id="idenN" type="number" class="validate">
                           <label class="active" for="identificacion-persona-natural" style="text-align: left;">N° Identificacion</label>
                           <!--<p id="campo1">campo requerido</p>-->
                         </div>
                         <div class="input-field col s12 l6">
-                          <select class="depto">
+                          <select class="depto" id="deparN">
                             <option value="" disabled selected>Elige tu opción</option>
                             <option value="1">Cundinamarca</option>
                             <option value="2">Antioquia</option>
@@ -162,7 +162,7 @@
                           <label>Departamento</label>
                         </div>
                         <div class="input-field col s12 l6">
-                          <select class="municipio">
+                          <select class="municipio" id="munN">
                             <option value="" disabled selected>Elige tu opción</option>
                             <option value="1">Viota</option>
                             <option value="2">Bello</option>
@@ -172,17 +172,17 @@
                           <label>Municipio</label>
                         </div>
                         <div class="input-field col s12 l6">
-                          <input id="direccion-persona-natural" type="text" class="validate">
+                          <input id="direccionN" type="text" class="validate">
                           <label class="active" for="direccion-persona-natural" style="text-align: left;">Dirección residencia*</label>
                           <!--<p id="campo1">campo requerido</p>-->
                         </div>
                         <div class="input-field col s12 l6">
-                          <input id="telefono-persona-natural" type="text" class="validate">
+                          <input id="telefonoN" type="text" class="validate">
                           <label class="active" for="telefono-persona-natural" style="text-align: left;">Telefono*</label>
                           <!--<p id="campo1">campo requerido</p>-->
                         </div>
                         <div class="input-field col s12 l6">
-                          <input id="email-persona-natural" type="text" class="validate">
+                          <input id="emailN" type="text" class="validate">
                           <label class="active" for="email-persona-natural" style="text-align: left;">Email*</label>
                           <!--<p id="campo1">campo requerido</p>-->
                         </div>
@@ -285,7 +285,7 @@
                   </div>
                 </div>
             </center>
-            <button id="siguiente1" type='button' class='btn waves-effect blue' style="top: 50px;">Siguiente</button>
+            <button id="validarRegistro" type='button' class='btn waves-effect blue' style="top: 50px;">Siguiente</button>
           </center>
           </div>
       </form>

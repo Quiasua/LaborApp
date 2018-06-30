@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script src="js/index.js"></script>
+  <script src="js/registrarDemanda.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.min.css" rel="stylesheet">
   <link rel="shortcut icon" href="img/logo.ico" />
@@ -123,38 +124,17 @@
   <div class="container">
     <div class="row recuperacion">
       <form>
-        <div class="col s12 animated fadeInRight " id="">
           <center>
-            <h4 class="blue-text">Hechos</h4>
-            <center>
-              <div class="card horizontal" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;position: relative;	top: 50px;">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="textarea2" class="materialize-textarea version-hechos" data-length="300"></textarea>
-                        <label for="textarea2">Describa la version de los hechos</label>
-                    </div>
-                    <div class="input-field col s12" style="margin-bottom:10px;"><label >Cargar Evidencia</label></div>
-                    <div class="input-field col s12">  
-                        <div class="file-field input-field">
-                            <div class="btn">
-                            <span>Archivo</span>
-                            <input type="file" multiple>
-                            </div>
-                            <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" placeholder="Sube tu evidencia">
-                            </div>
-                        </div>
-                    </div>  
-                    <div class="input-field col s6">
-                        <a class="waves-effect waves-light btn">button</a>
-                    </div>
-                    <div class="input-field col s6">
-                        <a class="waves-effect waves-light btn">button</a>
-                    </div>
-                </div>
+        <div class="col s12 animated fadeInRight " id="">
+          <h4 class="blue-text">Hechos</h4>         
+            <div class="card horizontal" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;position: relative;	top: 50px;">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea2" class="materialize-textarea version-hechos" data-length="300"></textarea>
+                  <label for="textarea2">Describa la version de los hechos</label>
+                  <button id="registrarDemanda" type='button' class='btn waves-effect blue' style="top: 50px;">Siguiente</button>                </div>
               </div>
-            </center>
-            <button id="siguiente4" type='button' class='btn waves-effect blue' style="top: 50px;">Guardar</button>
+            </div>
           </center>
         </div>
       </form>
@@ -163,4 +143,5 @@
 </body>
 
 <script src="js/menu.js"></script>
+
 </html>
