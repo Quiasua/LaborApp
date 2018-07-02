@@ -1,4 +1,5 @@
 $(document).ready(function () { //Funcion al momento de recargar la página
+	
 	$("#checkbox2").click(function () { //Funcion clic 
 		if ($(this).is(':checked')) { //Validador el checkbox
 			$("#otroSalario,#tituloOtroSalario").css("display", "block"); //Aparece el input de otro salario
@@ -14,7 +15,7 @@ $(document).ready(function () { //Funcion al momento de recargar la página
 	var pass1 = $('[name=password]');
 	var pass2 = $('[name=confirm-password]');
 	var confirmacion = "Las contraseñas si coinciden";
-	var longitud = "La contraseña debe estar formada entre 6-16 carácteres (ambos inclusive)";
+	var longitud = "La contraseña debe estar formada entre 6-16 carácteres";
 	var negacion = "No coinciden las contraseñas";
 	var vacio = "La contraseña no puede estar vacía";
 	//oculto por defecto el elemento span
@@ -39,7 +40,9 @@ $(document).ready(function () { //Funcion al momento de recargar la página
 		if (valor1.length != 0 && valor1 == valor2) {
 			span.text(confirmacion).removeClass("negacion").addClass('confirmacion');
 		}
-	}
+	}	
+
+	
 
 	$.ajax({
         url: "http://localhost:8080/laborapp/api/legalapp/consultarTipoConflicto",
@@ -63,6 +66,17 @@ $(document).ready(function () { //Funcion al momento de recargar la página
 		coincidePassword();
 	});
 
+	
+	$("#representante").click(function () { //Funcion clic 
+		if ($("#dvOcultar").css("display") ==  'none'){
+			$("#dvOcultar").css("display", "block");	
+		
+		} 
+		else {
+			$("#dvOcultar").css("display", "none");
+		}
+	});
+
 	$('select.tipo-identificacion').on('change', function () {//Funcion para seleccionar la dosificacion del option que 
 		var valorIdentificacionFrom = $(this).val();
 		if (valorIdentificacionFrom == 1) {
@@ -75,15 +89,8 @@ $(document).ready(function () { //Funcion al momento de recargar la página
 		}
 	});
 
-	$("#representante").click(function () { //Funcion clic 
-		if ($(this).is(':checked')) { //Validador el checkbox
-			$("#dvOcultar").css("display", "block");
-		} else {
-			$("#dvOcultar").css("display", "none");
-		}
-	});
-
 	$('select').material_select();
+
 
 	// for HTML5 "required" attribute
 	$("select[required]").css({
