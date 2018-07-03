@@ -5,63 +5,41 @@
 	<title>Recuperacion</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="css/materialize.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script src="js/jquery.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<link href="css/materialize.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/materialize.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/recuperar.js"></script>
 </head>
-<script>
-	$(document).ready(function () {
-		$("#btn-enviar").click(function () {
-			var url = "http://192.168.1.4:8080/Calculadora/api/Calculadora/consulatarCliente";
-			var id = $("#email-rec").val();
-			var iNum = parseInt(id);
-			var cliente = {
-				'idcliente': iNum
-			}
-			console.log(JSON.stringify(cliente));
-			
-			$.ajax({
-				url: url,
-				type: 'POST',
-				dataType: 'json',
-				data: JSON.stringify(cliente),
-				contentType: 'application/json',
-				success: function (data) {
-					console.log(data);
-				}
-			})
-
-		})
-	})
-</script>
 <body class="animated fadeInRight">
 	<div class="section"></div>
 	<div class="container">
 		<div class="row recuperacion">
 			<div class="col s12">
-			<form>
-				<center>
-            	<img class="logo" src="img/logo.png">
-					<h4 class="black-text">¿No puedes iniciar sesion?</h4>
-					<p class="recuperar blue-text">Proporciona información adicional para facilitar el proceso de recuperacion</p>
-					<div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px
+				<form>
+					<center>
+						<img width="" height="" class="logo" src="img/logo.png">
+						<h4 class="black-text">¿No puedes iniciar sesion?</h4>
+						<p class="recuperar blue-text">Proporciona información adicional para facilitar el proceso de recuperacion</p>
+						<div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px
 	 solid #EEE;">
-						<p class="recuperar black-text text-accent-2">Introduce la direccion de correo asociado a tu cuenta</p>
-						<div class="row">
-							<div class="input-field col s12">
-								<input id="email-rec" type="text" class="validate" required="" aria-required="true">
-								<label class="active" for="email-rec" style="text-align: left;">Correo electronico</label>
+							<p class="recuperar black-text text-accent-2">Introduce la direccion de correo asociado a tu cuenta</p>
+							<div class="row">
+								<div class="input-field col s12">
+									<input id="email-rec" type="text" class="validate" required="" aria-required="true">
+									<label class="active" for="email-rec" style="text-align: left;">Correo electronico</label>
+								</div>
 							</div>
 						</div>
-					</div>
-				</center>
-					<center><button id="btn-enviar" type="button" class='btn waves-effect blue'>Entrar</button></center>
+					</center>
+					<center>
+						<button id="recordar" type="button" class='btn waves-effect blue'>Entrar</button>
+					</center>
 				</form>
 			</div>
-		</div>    
+		</div>
 	</div>
 </body>
 </html>
