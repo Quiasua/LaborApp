@@ -117,11 +117,15 @@
                   <div class="input-field col s12 l6">
                     <select id="tipoConflicto">
                       <option value="" disabled selected>Elige tu opción</option>
+                      <option value="1">Termino indefinido</option> 
+                      <option value="2">Prestación de servicios</option> 
+                      <option value="3">Termino fijo</option> 
+                      <option value="4">Obra labor</option> 
                     </select>
                     <label>Tipo de Contrato</label>
                   </div>
                   <div class="input-field col s12 l6">
-                    <input id="otroSalario" type="number" class="validate">
+                    <input id="otroSalario" class="validate" maxlength="15" onkeypress="return valida(event)">
                     <label id="tituloOtroSalario" class="active" for="otroSalario" style="text-align: left">Ultimo salario devengado</label>
                     <!--<p id="campo">campo requerido</p>-->
                   </div>
@@ -178,3 +182,18 @@
 </body>
 
 </html>
+<script>
+  function valida(e){
+		tecla = (document.all) ? e.keyCode : e.which;
+	
+		//Tecla de retroceso para borrar, siempre la permite
+		if (tecla==8){
+			return true;
+		}
+			
+		// Patron de entrada, en este caso solo acepta numeros
+		patron =/[0-9]/;
+		tecla_final = String.fromCharCode(tecla);
+		return patron.test(tecla_final);
+	}	
+</script>
