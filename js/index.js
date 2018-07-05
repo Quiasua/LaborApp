@@ -58,7 +58,7 @@ $(document).ready(function () {
     $("#enviarcorreo").click(function () {
         var link = document.URL;
         var urls = new URL(link);
-        var server = "localhost";
+        var server = "192.168.1.23";
         var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/envioCorreo";
         var url_consulta = "http://" + server + ":8080/laborapp/api/legalapp/consultarUsuarioId";
         var nombre = localStorage.lastname;;
@@ -133,7 +133,7 @@ $(document).ready(function () {
     var link = document.URL;
     var urls = new URL(link);
     var usuario = localStorage.lastname;;
-    var server = "localhost";
+    var server = "192.168.1.23";
     var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/consultarPersona";
     var filtroPersona = {
         filtroId: 0
@@ -214,7 +214,7 @@ $(document).ready(function () {
             dirreccion: $("#direccion").val(),
             numeroIdentificacion: $("#Numid").val()
         }
-        var urlEnviar = "http://localhost:8080/laborapp/api/legalapp/actualizarPersona"
+        var urlEnviar = "http://192.168.1.23:8080/laborapp/api/legalapp/actualizarPersona"
         $.ajax({
             url: urlEnviar,
             type: 'POST',
@@ -236,7 +236,7 @@ $(document).ready(function () {
 
     //ESTA PARTE DEL SCRIPT ES PARA REGISTRAR LA PERSONA JURIDICA A LA QUE SE LE VA HACER LA DEMANADA 
 
-    var server = "localhost";
+    var server = "192.168.1.23";
     $("#validarRegistro").click(function () {
         if ($("#tipoper").val() == "1") {
             registrarPersonaN();

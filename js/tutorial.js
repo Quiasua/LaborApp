@@ -7,7 +7,7 @@ $(document).ready(function () {
         var filtro = {
             idUsuario: idSer
         }       
-        var server = "localhost";
+        var server = "192.168.1.23";
         var url_persona = "http://" + server + ":8080/laborapp/api/legalapp/actualizarTutorial";
         $.ajax({
             url: url_persona,

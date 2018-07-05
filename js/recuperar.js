@@ -5,7 +5,7 @@ $(document).ready(function () {
     console.log(nombre);
 
     $("#recordar").click(function () {
-        var url = "http://localhost:8080/laborapp/api/legalapp/actalizarContrase";
+        var url = "http://192.168.1.23:8080/laborapp/api/legalapp/actalizarContrase";
         var id = $("#email-rec").val();
         var iNum = parseInt(id);
         var cliente = {
@@ -34,7 +34,7 @@ $(document).ready(function () {
     })
 
     $("#confirmar").click(function () {
-        var url = "http://localhost:8080/laborapp/api/legalapp/cambiarContrasena";        
+        var url = "http://192.168.1.23:8080/laborapp/api/legalapp/cambiarContrasena";        
         var id =  urls.searchParams.get("usr");
         var iNum = parseInt(id);
         var cliente = {

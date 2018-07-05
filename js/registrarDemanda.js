@@ -1,6 +1,6 @@
  //ESTA PARTE DEL SCRIPT ES PARA REGISTRAR LA PERSONA JURIDICA A LA QUE SE LE VA HACER LA DEMANADA 
  $(document).ready(function () {
- var server = "localhost";
+ var server = "192.168.1.23";
  $("#validarRegistro").click(function () {
      if ($("#tipoper").val() == "1") {
          registrarPersonaN();
